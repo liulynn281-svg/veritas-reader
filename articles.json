@@ -1,5 +1,179 @@
 [
   {
+    "id": "guardian-ai-cancer-selfie-2026",
+    "badge": "THE GUARDIAN · 23 OCT 2026 · AI & MEDICAL ETHICS",
+    "author": "Prof. Devi Sridhar (Chair of Global Public Health, University of Edinburgh)",
+    "sourceUrl": "https://www.theguardian.com/commentisfree/2026/oct/23/ai-cancer-survival-doctor-selfie-health-research",
+    "enTitle": "Can AI really predict cancer survival better than a doctor? I have my doubts",
+    "zhTitle": "一张自拍就能比医生更准地预测癌症生存期？我深表怀疑",
+    "themeColor": "#0F766E",
+    "imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=85",
+    "imageCaption": "'The question is whether it's actually useful in daily practice beyond what clinicians are already doing by using experience and years of training.' Photograph: Andrzej Rostek/Alamy",
+    "enKeyTakeaway": "Researchers at Mass General Brigham trained an AI model on 40 million facial images to estimate biological age and cancer survival from a single selfie. While intriguing, retrospective statistical associations suffer from racial bias, lighting and cosmetic confounding, and remain a long way from replacing seasoned clinical judgment.",
+    "zhKeyTakeaway": "麻省总医院布百翰医疗中心的研究人员利用 4000 万张面部图像训练出 AI 模型，试图仅凭一张自拍照估算生物学年龄并预测癌症患者生存期。尽管研究颇具噱头，但基于回顾性数据的统计关联仍受困于种族偏差、光线与医美干扰，距离真正替代医生的临床经验判断仍有漫长距离。",
+    "paragraphs": [
+      {
+        "enHeading": "1. The Allure of the Diagnostic Selfie",
+        "zhHeading": "一、自拍诊病的诱人设想：面部外貌作为健康的代理指标",
+        "enText": "The idea that a single selfie could predict how long someone with cancer may live sounds like an incredible breakthrough. AI is getting better at spotting patterns in medical data, but can it be used to reliably predict what will happen to an individual patient? I asked a clinical colleague what she thought about the recent headlines. She found it an interesting development given that doctors have long used facial appearance to assess patient health. For example, she noted that they may write “appears stated age” or “appears older than stated age” as {{a proxy for general health||/ə ˈprɒksi fɔː ˈdʒɛnərəl hɛlθ/||整体健康状况的代理指标/间接衡量标准||...they may write 'appears stated age' or 'appears older than stated age' as a proxy for general health.||In epidemiological studies, grip strength is frequently utilized as a proxy for general health and longevity.||在流行病学研究中，握力常被用作衡量整体健康状况与寿命的代理指标。}}.",
+        "zhText": "仅凭一张自拍照就能预测癌症患者还能活多久，这听起来像是一项不可思议的突破。人工智能在识别医疗数据规律方面正变得越来越强，但它真的能用来可靠地预测单个患者的命运吗？我问了一位临床同事对近期这些新闻头条的看法。她觉得这是一个有趣的进展，因为医生长期以来确实会通过面部外貌来评估患者的健康状况。例如她指出，医生可能会在病历上写下“外貌与实际年龄相符”或“外貌显老于实际年龄”，以此作为整体健康状况的代理指标。"
+      },
+      {
+        "enHeading": "2. FAHR-Face: From 40 Million Faces to Hippocratic Signs",
+        "zhHeading": "二、4000万张人脸训练出的模型与古希腊希波克拉底面容",
+        "enText": "Now, researchers from Mass General Brigham, a healthcare institution in Massachusetts, have taken this idea a step further. They have developed an AI model trained on more than 40 million facial images – called FAHR-Face – to assess biological age and predict survival in cancer patients. For biological age, they developed FAHR-FaceAge, which estimates age from certain facial features such as the forehead, the wrinkles between the nose and mouth and the temples. For cancer survival, they developed FAHR-FaceSurvival, trained using almost 35,000 photos of cancer patients. This model focused more closely on the area below the eyes and the bridge of the nose – regions of the face “linked with dying”. Dr Raymond Mak, one of the study's authors, noted that these parts of the face are the same as those referenced by Hippocrates in 400BC as signs of {{muscle wasting and mortality risk||/ˈmʌsl ˈweɪstɪŋ ænd mɔːˈtælɪti rɪsk/||肌肉萎缩消耗与死亡风险||...these parts of the face are the same as those referenced by Hippocrates in 400BC as signs of muscle wasting and mortality risk.||Severe cachexia is characterized by progressive muscle wasting and mortality risk in late-stage oncology patients.||重度恶病质的特征是晚期肿瘤患者出现进行性肌肉萎缩与极高的死亡风险。}}: “the nose sharp, the eyes sunken, the temples fallen in”.",
+        "zhText": "如今，马萨诸塞州医疗机构麻省总医院布列根医疗中心（Mass General Brigham）的研究人员将这一想法推向了深入。他们开发了一个基于超过 4000 万张面部图像训练的 AI 模型——名为 FAHR-Face——用于评估生物学年龄并预测癌症患者的生存率。在生物学年龄方面，他们开发了 FAHR-FaceAge，通过前额、鼻唇沟皱纹和太阳穴等特定面部特征来估算年龄；在癌症生存率方面，他们利用近 3.5 万张癌症患者照片训练出了 FAHR-FaceSurvival。该模型更紧密地聚焦于眼下区域和鼻梁——即面部“与死亡相关”的区域。研究作者之一 Raymond Mak 博士指出，这些面部区域与公元前 400 年希波克拉底所记载的肌肉萎缩和死亡风险体征如出一辙：“鼻尖如削、双目深陷、两鬓坍塌”。"
+      },
+      {
+        "enHeading": "3. Intriguing But Far From Conclusive: The Problem of Racial Bias",
+        "zhHeading": "三、结果引人入胜却远非定论：难以忽视的算法种族偏差",
+        "enText": "The results, published in The Lancet Digital Health this month, are {{intriguing – but far from conclusive||/ɪnˈtriːɡɪŋ bʌt fɑː frɒm kənˈkluːsɪv/||引人入胜，但远未达到确凿定论的程度||The results, published in The Lancet Digital Health this month, are intriguing – but far from conclusive.||Preliminary trials of the mRNA cancer vaccine are intriguing, but far from conclusive without Phase 3 data.||mRNA 癌症疫苗的初步试验结果引人注目，但在缺乏三期临床数据的情况下远非定论。}}. Researchers found that AI-estimated facial age was significantly associated with survival in 18 of 28 cancer categories. So, basically, it works for some cancers, but not for others. In addition, Prof Miroslaw Bober noted, “The tool still needs testing against doctors' own judgments and across different hospitals and patient groups. For example, the facial-age measure was not significantly associated with survival for Black patients after adjustment for other factors.” That finding adds to the growing concern that AI models can {{exhibit racial bias||/ɪɡˈzɪbɪt ˈreɪʃəl ˈbaɪəs/||表现出种族偏差/算法歧视||That finding adds to the growing concern that AI models can exhibit racial bias based on the data used to train them and underlying assumptions.||Predictive policing algorithms frequently exhibit racial bias when trained on historically skewed arrest records.||当使用存在历史偏差的逮捕记录进行训练时，预测性警务算法往往会表现出种族偏见。}} based on the data used to train them and underlying assumptions. For example, racial bias has been shown when AI models analyse cardiac magnetic resonance (CMR) scans – used to diagnose and monitor heart disease.",
+        "zhText": "本月发表在《柳叶刀·数字医疗》（The Lancet Digital Health）上的这项研究结果颇具吸引力，但远未达到确凿定论的程度。研究人员发现，AI 估算的面部年龄在 28 种癌症类别中的 18 种里与生存率显著相关。也就是说，它基本上对某些癌症有效，而对另一些则无效。此外，Miroslaw Bober 教授指出：“该工具仍需与医生自身的判断进行对比测试，并在不同医院和患者群体中加以验证。例如，在校正其他因素后，面部年龄指标与黑人患者的生存率并无显著关联。”这一发现加剧了人们日益增长的担忧：AI 模型会基于其训练数据和底层假设而表现出种族偏差。例如，此前已有研究证实，当 AI 模型分析用于诊断和监测心脏病的心脏磁共振（CMR）扫描图像时，就存在明显的种族偏差。"
+      },
+      {
+        "enHeading": "4. The Leap From Retrospective Correlation to Individual Prediction",
+        "zhHeading": "四、从“回顾性统计关联”到“个体未来预测”的巨大鸿沟",
+        "enText": "Let's go back to what the published study does and doesn't tell us. These models are built on {{retrospective data||/ˌrɛtrəˈspɛktɪv ˈdeɪtə/||回顾性历史数据||These models are built on retrospective data looking at statistical associations across thousands of patients...||Relying solely on retrospective data can blind researchers to emerging real-world confounding variables.||单纯依赖回顾性历史数据可能会让研究人员忽视新出现的现实干扰变量。}} looking at statistical associations across thousands of patients, and it's a jump to then accurately predict future survival from this. A selfie may contain clues about a patient's health, but that is a long way from being able to predict their future – and a longer way still from proving that the prediction is useful in clinical practice.",
+        "zhText": "让我们回到这项已发表的研究究竟告诉了我们什么、又没告诉我们什么。这些模型是建立在回顾性数据之上的，考察的是数千名患者之间的统计学关联；若想由此直接跨越到精准预测单个患者未来的生存期，这中间存在着巨大的跳跃。一张自拍照或许包含有关患者健康状况的蛛丝马迹，但这距离真正预测他们的未来还有很长的路要走——而距离证明这种预测在临床实践中真正有用，则更是遥不可及。"
+      },
+      {
+        "enHeading": "5. Lighting, Angles, Botox, and GLP-1 Drugs",
+        "zhHeading": "五、自拍照的不可靠性：光线、角度、医美与 GLP-1 减肥药的干扰",
+        "enText": "I also worry about how unreliable selfies are. Just think of the times you've met people in real life and compared them with their profile photos. Anyone who has tried one of the online AI “guess your age” tools will know how much the result varies with lighting, camera angle, facial expression or even time of day. And then there's botox, fillers, facelifts and even GLP-1 drugs, which alter facial fat and shape. How much can a single photograph really tell us about someone's {{underlying health||/ˌʌndəˈlaɪɪŋ hɛlθ/||底层真实健康状况；潜在健康水平||How much can a single photograph really tell us about someone's underlying health?||Cosmetic enhancements can mask outward signs of fatigue without improving a patient's underlying health.||医美修饰可以掩盖外在的疲态，却无法改善患者底层的真实健康状况。}}?",
+        "zhText": "我同样担忧自拍照本身的不可靠性。回想一下你在现实生活中见到真人、并将其与社交头像对比时的落差吧。任何试过网上那些 AI“猜年龄”工具的人都知道，测试结果会随着光线、拍摄角度、面部表情甚至一天中的不同时间而发生多大变化。更不用说还有肉毒杆菌、填充剂、拉皮手术，甚至像 GLP-1 这类会显著改变面部脂肪分布与轮廓的减肥药物。一张孤立的照片，究竟能在多大程度上反映一个人的底层真实健康状况？"
+      },
+      {
+        "enHeading": "6. When Looking Younger Does Not Mean Being Healthier",
+        "zhHeading": "六、抗衰时代的悖论：看起来更年轻不等于身体更健康",
+        "enText": "As anti-ageing treatments become the norm, visible age and underlying health will become an increasingly complex relationship. A face in a selfie that looks younger may not be necessarily healthier. The researchers do note that they tested their age model against lighting, expression and cosmetic surgery – but if predictions are based on specific signs of ageing in parts of the face that those all affect, I can't see how it would be possible to avoid a certain degree of error in AI estimates.",
+        "zhText": "随着抗衰老治疗日益成为常态，视觉年龄与底层健康之间的关系将变得愈发扑朔迷离。自拍照里一张看起来更年轻的脸，绝不意味着身体就一定更健康。研究人员确实提到，他们针对光线、表情和整容手术对年龄模型进行了测试——但如果模型的预测本身就是基于面部特定区域的衰老迹象，而上述所有因素恰恰都会改变这些区域，我实在看不出 AI 的估算如何能够避免一定程度的系统性误差。"
+      },
+      {
+        "enHeading": "7. Taking the Guesswork Out vs. Daily Clinical Utility",
+        "zhHeading": "七、辅助减少主观臆测，但能否超越医生的多年临床训练？",
+        "enText": "None of this means the research isn't promising. This new tool and the research team behind it are impressive. Alongside other tests that a doctor may perform to assess a patient's health and {{future prognosis||/ˈfjuːtʃə prɒɡˈnəʊsɪs/||未来预后（对疾病走向与康复概率的医学预测）||Alongside other tests that a doctor may perform to assess a patient's health and future prognosis, it could take some of the guesswork out of 'looks stated age'.||Early detection of micrometastases dramatically alters a cancer patient's future prognosis.||微转移灶的早期发现会显著改变癌症患者的未来预后。}}, it could {{take some of the guesswork out of||/teɪk sʌm ɒv ðə ˈɡɛswɜːk aʊt ɒv/||消除部分主观盲目猜测；让评估更客观化||...it could take some of the guesswork out of 'looks stated age'.||Quantitative biomarkers help take some of the guesswork out of psychiatric prescribing.||定量生物标志物有助于消除精神科处方中的部分主观猜测。}} “looks stated age”. But the question is whether it's actually useful in daily practice beyond what clinicians are already doing when using experience and years of training.",
+        "zhText": "这并不是说这项研究毫无前景。这一新工具及其背后的科研团队令人印象深刻。配合医生为评估患者健康和未来预后所开展的其他检查，它或许能减少医生判断“外貌是否与实际年龄相符”时的主观臆测。但核心问题在于：在日常临床实践中，除了临床医生凭借多年训练与经验已经在做的事情之外，它是否真的能提供额外的实用价值？"
+      },
+      {
+        "enHeading": "8. The Privacy Price Tag of Public Selfie Portals",
+        "zhHeading": "八、免费测年龄背后的隐私代价：你的脸正成为算法训练数据",
+        "enText": "If you're tempted to go to the project's public website to find out your biological age, even just to brag to friends about how young it says you look, be aware that by uploading your selfie, you will become part of the study too, as their consent forms indicate. Your face is not only being assessed, it's contributing to the data used to develop the technology. Currently, the tool will only tell you your biological age, but I would be sceptical of what that may tell you about your overall health.",
+        "zhText": "如果你忍不住想去该项目的公开网站测一测自己的生物学年龄——哪怕只是为了向朋友炫耀算法说你看起来有多年轻——请务必注意，正如其知情同意书所写，一旦上传自拍，你也就成为了这项研究的受试者。你的脸不仅在被评估，还在为开发这项技术贡献训练数据。目前，该工具只会告诉你一个生物学年龄数值，但对于这个数字究竟能在多大程度上说明你的整体健康状况，我保持怀疑。"
+      },
+      {
+        "enHeading": "9. The Pop Quiz We Didn't Need 40 Million Faces to Answer",
+        "zhHeading": "九、随堂小测验：何必扫描 4000 万张脸才懂得的基本常识",
+        "enText": "Finally, a pop quiz (I'm in the middle of the teaching semester): what top three things did the researchers find made people's face age? Alcohol, drugs and smoking. No surprise there, but possibly an explanation as to why doctors can broadly read someone's health status from their face. Something that perhaps we didn't need AI scanning 40m faces to tell us.",
+        "zhText": "最后来个随堂小测验（毕竟我正处在教学学期中）：研究人员发现最催人面容衰老的前三大元凶是什么？酒精、毒品和吸烟。毫不意外，对吧？但这恰恰解释了为什么医生大抵能从病人的脸上读出其健康状态——而为了知道这一点，我们或许根本不需要让 AI 去扫描 4000 万张人脸。"
+      }
+    ],
+    "speaking": {
+      "question": "To what extent should artificial intelligence diagnostic tools replace or supplement human doctors in predicting patient outcomes?",
+      "modelAnswer": "While AI models trained on massive datasets can take some of the guesswork out of preliminary screening, their findings are often intriguing – but far from conclusive. Because algorithms built on retrospective data can inadvertently exhibit racial bias or be confounded by superficial variables, they should serve strictly as an auxiliary proxy for general health rather than superseding a clinician's holistic assessment of a patient's future prognosis.",
+      "targetPhrases": [
+        "a proxy for general health",
+        "intriguing – but far from conclusive",
+        "exhibit racial bias",
+        "retrospective data",
+        "take some of the guesswork out of",
+        "future prognosis"
+      ]
+    }
+  },
+  {
+    "id": "guardian-ai-time-paradox-2026",
+    "badge": "THE GUARDIAN · 20 OCT 2026 · PUBLIC POLICY & AI SLOP",
+    "author": "Gaby Hinsliff (Guardian Columnist)",
+    "sourceUrl": "https://www.theguardian.com/commentisfree/2026/oct/20/ai-supposed-to-save-time-opposite-government-uk",
+    "enTitle": "Don't be fooled. The AI that was supposed to save us time is doing just the opposite",
+    "zhTitle": "别被忽悠了：本该帮我们省时间的 AI，正让全社会陷入低效泥潭",
+    "themeColor": "#7C2D12",
+    "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "imageCaption": "Since the adoption of ChatGPT, governments and courts around the world are seeing surges in machine-generated complaints and requests. Photograph: Krongkaew/Getty Images",
+    "enKeyTakeaway": "Governments hope AI will streamline public services and save billions. Instead, just like email before it, generative AI has unleashed an uncontrollable firehose of machine-generated slop—flooding courts, MPs' inboxes, and job boards, turning promised shortcuts into systemic bottlenecks.",
+    "zhKeyTakeaway": "各国政府寄望于用 AI 精简公共服务并节省数十亿开支；然而就像当年的电子邮件一样，生成式 AI 反而释放了一股不可控的“机器垃圾洪流”——淹没了劳资审裁处、议员信箱与招聘系统，让所谓的效率捷径演变成全社会的系统性拥堵。",
+    "paragraphs": [
+      {
+        "enHeading": "1. The Quentin Crisp Theory of Unread Inboxes",
+        "zhHeading": "一、7000封未读邮件与昆汀·克里斯普的“家务灰尘定律”",
+        "enText": "Another morning, another {{avalanche of emails||/ˈævəlɑːnʃ ɒv ˈiːmeɪlz/||雪崩般涌来的海量邮件||Another morning, another avalanche of emails.||Modern knowledge workers start every Monday buried beneath an avalanche of emails and automated notifications.||现代知识工作者每个周一早晨都始于被雪崩般的邮件和自动通知所掩埋。}}. Even after a guilty cull, my inbox is sitting at well over 7,000, but lately I've started subscribing to the Quentin Crisp theory of housework: why bother, when after four years or so you stop noticing the accumulating dust? Empty inboxes just fill up again anyway.",
+        "zhText": "又是一个清晨，又是雪崩般涌来的邮件。即便心怀愧疚地清理了一轮，我的收件箱里依然躺着 7000 多封未读邮件。但最近我开始信奉昆汀·克里斯普（Quentin Crisp）的“家务理论”：既然大概四年之后你就会对积灰视而不见，那又何必白费力气去打扫呢？反正清空的收件箱转眼间又会被塞满。"
+      },
+      {
+        "enHeading": "2. The Double-Edged Sword of Zero-Friction Communication",
+        "zhHeading": "二、零摩擦沟通的反噬：当你能一秒触达世界，世界也能一秒淹没你",
+        "enText": "In theory, email was supposed to save hours of meetings, phone calls and standing over photocopiers. Instead, we just spend hours deleting stuff people wouldn't have bothered telling us if it had meant picking up the phone, but which they can now spam to their entire database at the click of a button. The glorious ease and convenience of being able to reach the world in seconds came, we now know, with the inconvenience of them being able to reach you right back.",
+        "zhText": "在理论上，电子邮件本该为我们省去数小时的会议、电话和站在复印机前等待的时间。结果相反，我们每天要花好几个小时去删除那些“如果必须打电话对方根本懒得跟我们说、但现在只需点一下按钮就能群发给整个数据库”的垃圾信息。如今我们终于明白，几秒钟内触达全世界的美妙便捷，必然伴随着全世界也能瞬间反过来淹没你的巨大不便。"
+      },
+      {
+        "enHeading": "3. Streamlining the State or Gumming It Up?",
+        "zhHeading": "三、廉价改造国家机器的幻想：不是在疏通，而是在添堵",
+        "enText": "And therein lies the challenge to the government's hopes of AI helping to {{transform the machinery of the state on the cheap||/trænsˈfɔːm ðə məˈʃiːnəri ɒv ðə steɪt ɒn ðə tʃiːp/||以低廉成本彻底改造国家行政机器||And therein lies the challenge to the government's hopes of AI helping to transform the machinery of the state on the cheap...||Politicians perpetually search for technological silver bullets to transform the machinery of the state on the cheap.||政客们总是试图寻找技术灵丹妙药，妄想以低成本改造庞大的国家行政机器。}}, saving not only time but billions of pounds in public money. It's early days, but AI seems not so much to be {{streamlining public service delivery||/ˈstriːmlaɪnɪŋ ˈpʌblɪk ˈsɜːvɪs dɪˈlɪvəri/||精简并提速公共服务供给||...AI seems not so much to be streamlining public service delivery as gumming it up...||Digital identity portals were designed for streamlining public service delivery across municipal agencies.||数字身份门户的设计初衷是精简各市政机构之间的公共服务供给。}} as gumming it up – partly because, as was once the case with email, the public is using it right back at them.",
+        "zhText": "而这恰恰击中了政府寄望于利用 AI“以低廉成本改造国家机器”的软肋——政府本指望它不仅能省下时间，还能节省数十亿英镑的公共资金。虽然尚处早期阶段，但 AI 看起来与其说是在精简公共服务供给，倒不如说是在把系统彻底糊死——部分原因在于，就像当年的电子邮件一样，公众正反过来用 AI 对付政府部门。"
+      },
+      {
+        "enHeading": "4. Courts Drowning in Hallucinated Precedents",
+        "zhHeading": "四、劳资审裁处激增 39%：法官被迫人工拆解 AI 编造的荒唐卷宗",
+        "enText": "In a Substack post last week, the former civil servant Sam Freedman noted that governments around the world seem to be experiencing unusual surges in complaints, requests and responses to regulatory and official bodies since the adoption of ChatGPT. It's the same story in the courts, with employment tribunal cases in England, Scotland and Wales reportedly rising by 39% in a year thanks in part to claimants using AI to draft claims, while magistrates and judges face a wave of people who can't afford lawyers using ChatGPT to build cases that often don't make sense. And all of this needs {{patient disentangling by a human||/ˈpeɪʃənt ˌdɪsɪnˈtæŋɡlɪŋ baɪ ə ˈhjuːmən/||由人类耐心地抽丝剥茧、理清头绪||And all of this needs patient disentangling by a human, on the grounds that just because a defendant is citing precedents that don't exist, it doesn't mean there isn't a genuine grievance buried in there somewhere.||Algorithmic accounting errors require hours of patient disentangling by a human auditor.||算法造成的财务差错需要人类审计师花费数小时耐心地抽丝剥茧。}}, on the grounds that just because a defendant is citing precedents that don't exist, it doesn't mean there isn't a genuine grievance buried in there somewhere.",
+        "zhText": "前公务员 Sam Freedman 上周在一篇 Substack 专栏中指出，自 ChatGPT 普及以来，全球各国政府及监管机构收到的投诉、申请与质询似乎都出现了异常激增。法院系统的情况如出一辙：据报道，英格兰、苏格兰和威尔士的劳资审裁案件在一年内激增了 39%，部分原因正是申诉人开始使用 AI 起草诉状；治安法官和庭审法官正面临一大批请不起律师的当事人，他们用 ChatGPT 拼凑出的案卷往往逻辑不通。而所有这些都必须由人类耐心地抽丝剥茧——因为仅仅由于被告引用了根本不存在的虚假判例，并不意味着那堆文字背后没有隐藏着真实的冤屈。"
+      },
+      {
+        "enHeading": "5. Whitehall and MPs Swamped by Automated Letters",
+        "zhHeading": "五、白厅与国会议员办公室被 AI 自动生成的信件淹没",
+        "enText": "Whitehall special advisers complain of departments drowning in AI-generated freedom of information requests, an abuse of a system originally intended to empower individuals. MPs' offices are similarly swamped by AI-generated letters, all of which need to be read by humans for fear of missing something important from a constituent.",
+        "zhText": "英国白厅（Whitehall）的特别顾问们抱怨称，政府各部门正被 AI 生成的《信息自由法》公开申请所淹没，这完全滥用了原本旨在赋权于公民的制度。国会议员办公室同样被 AI 生成的信件冲垮，而工作人员又不得不逐一人工阅读每一封信，唯恐漏掉选民真正重要的求助。"
+      },
+      {
+        "enHeading": "6. An Uncontrollable Firehose of Machine-Generated Guff",
+        "zhHeading": "六、当立法公众咨询沦为不可控的“机器废话高压水枪”",
+        "enText": "How long before public consultations on changing the law become so spammed by slop that they are in essence useless as a measure of what the country actually thinks? There's a fine line between the noble aim of making it easier for individuals to interact with an otherwise remote state, and making it so easy that the result is {{an uncontrollable firehose of meaningless machine-generated guff||/ən ˌʌnkənˈtrəʊləbl ˈfaɪəhəʊz ɒv ˈmiːnɪŋləs məˈʃiːn-ˈdʒɛnəreɪtɪd ɡʌf/||一股失控喷涌的、毫无意义的机器生成废话洪流||...making it so easy that the result is an uncontrollable firehose of meaningless machine-generated guff.||Without editorial gatekeeping, open publishing platforms quickly degenerate into an uncontrollable firehose of meaningless machine-generated guff.||若无编辑把关，开放内容平台很快就会退化为失控喷涌的机器废话洪流。}}.",
+        "zhText": "还要过多久，关于修改法律的公众咨询就会被各种 AI 垃圾内容（slop）彻底灌爆，以至于从根本上丧失衡量国民真实民意的功能？让普通人更便捷地与原本高高在上的国家机器互动，这无疑是一个高尚的目标；但如果在降低门槛上走得太极端，结果就会演变成一股失控喷涌、毫无意义的机器废话高压水枪——这两者之间只有一线之隔。"
+      },
+      {
+        "enHeading": "7. Why AI Filters Cannot Simply Dismiss Vulnerable Citizens",
+        "zhHeading": "七、为何不能简单用 AI 过滤 AI？弱势公民依然有权获得人类的回应",
+        "enText": "The obvious answer to this kind of AI flooding is getting AI tools to detect or sift it, but that doesn't always work when dealing with potentially vulnerable human beings. Constituents who use AI to express themselves in more fancy-sounding language when writing to their MP, for example, still have the right to expect a personal response from a human being.",
+        "zhText": "应对这种 AI 洪灾最显而易见的办法似乎是“用 AI 工具去识别和筛除 AI”，但在面对潜在的弱势群体时，这招往往行不通。举例来说，有些选民给议员写信时只是借助 AI 把自己的诉求润色得更体面、更有文采，但他们依然完全有权期待得到来自真人的亲自回复。"
+      },
+      {
+        "enHeading": "8. The Recruitment Arms Race: Separating Wheat From Chaff",
+        "zhHeading": "八、招聘市场的军备竞赛：当 AI 筛简历遇上 AI 海投，双双陷入瘫痪",
+        "enText": "Employers who thought they were being smart by getting AI to sift job applications, meanwhile, are {{reaping what they sowed||/ˈriːpɪŋ wɒt ðeɪ səʊd/||自食其果；种瓜得瓜（承受自己行为引发的反噬）||Employers who thought they were being smart by getting AI to sift job applications, meanwhile, are reaping what they sowed...||Companies that prioritized short-term stock buybacks over R&D are now reaping what they sowed.||那些重短期股票回购而轻研发投入的企业，如今正在自食其果。}}, as resentful applicants automate their end of things too and spray-gun applications across the board, rather than concentrating on the jobs they really want. Now neither side can {{separate the wheat from an avalanche of chaff||/ˈsɛpəreɪt ðə wiːt frɒm ən ˈævəlɑːnʃ ɒv tʃɑːf/||在雪崩般的糠秕（垃圾信息）中筛出真正的麦粒（精华）||Now neither side can separate the wheat from an avalanche of chaff.||In an era of synthetic media, critical literacy is the only way to separate the wheat from an avalanche of chaff.||在合成媒体时代，批判性素养是从雪崩般的糟粕中甄别精华的唯一途径。}}.",
+        "zhText": "与此同时，那些自以为聪明、率先用 AI 筛选求职简历的雇主们正在自食其果：满怀怨气的求职者们也在自己这一端搞起了自动化，像机关枪扫射一样全网海投简历，而不是专注于自己真正心仪的岗位。如今，招聘方与求职方双双陷入瘫痪，谁也无法从雪崩般的糠秕中筛出真正的麦粒。"
+      },
+      {
+        "enHeading": "9. When Shortcuts Become Rush-Hour Bottlenecks",
+        "zhHeading": "九、捷径悖论：当所有人都在走捷径，伦敦市中心的车速还不如小马慢跑",
+        "enText": "The risk of paralysis is likely only to increase if the public starts adopting agentic AI in the kind of numbers big tech fondly imagines. Early adopters might well find agents save them time and hassle. But {{shortcuts stop being shortcuts once everyone else is using them too||/ˈʃɔːtkʌts stɒp ˈbiːɪŋ ˈʃɔːtkʌts wʌns ˈɛvrɪwʌn ɛls ɪz ˈjuːzɪŋ ðɛm tuː/||一旦所有人都开始使用某条捷径，捷径就不再是捷径（反而会变成拥堵瓶颈）||But shortcuts stop being shortcuts once everyone else is using them too, and risk turning into bottlenecks instead.||In algorithmic trading and job hunting alike, shortcuts stop being shortcuts once everyone else is using them too.||无论是在算法交易还是求职中，一旦所有人都用上同一种捷径，捷径便瞬间失效。}}, and risk turning into bottlenecks instead. Think of cars, which have vastly shortened journey times compared with travelling by horseback, except in cities at rush hour when too many other people are also trying to shorten theirs. By 2018, central London daytime traffic was moving on average at just over 7mph – about the same speed as a trotting pony.",
+        "zhText": "如果公众开始按照科技巨头满怀憧憬的规模普及“智能体 AI（Agentic AI）”，这种系统瘫痪的风险只会进一步加剧。早期尝鲜者或许确实觉得智能体帮自己省去了时间和麻烦；但一旦所有人都开始使用同一条捷径，捷径就不再是捷径，反而会变成新的拥堵瓶颈。不妨想想汽车：与骑马相比，汽车极大缩短了旅途时间——但唯独在晚高峰的城市中心例外，因为同一时间有太多人也正试图缩短他们的通勤时间。到 2018 年，伦敦市中心白天的平均车速仅为每小时 7 英里出头——差不多就跟一匹慢跑的小马一样快。"
+      },
+      {
+        "enHeading": "10. Putting Necessary Friction Back Into the System",
+        "zhHeading": "十、制度自救：像征收拥堵费一样，重新为系统注入“良性摩擦”",
+        "enText": "Historically, humans have always learned to develop ways around problems of our own making. We have spam filters for email, congestion charges to keep cars out of cities, and in the long term we could well figure out {{what kind of frictions we need to put back in the system||/wɒt kaɪnd ɒv ˈfrɪkʃənz wiː niːd tuː pʊt bæk ɪn ðə ˈsɪstəm/||我们需要在系统中重新引入何种适度的“阻力/摩擦成本”||...in the long term we could well figure out what kind of frictions we need to put back in the system to make it possible to live with the impact of AI.||To curb impulsive financial speculation, regulators are debating what kind of frictions we need to put back in the system.||为了遏制冲动型金融投机，监管者正在探讨需要在交易系统中重新引入何种适度阻力。}} to make it possible to live with the impact of AI.",
+        "zhText": "纵观历史，人类总能学会找到办法来化解我们自己制造出的难题。我们为电子邮件发明了垃圾过滤器，为了把汽车挡在市中心之外设立了交通拥堵费；从长远来看，我们完全有可能摸索出需要在系统中重新引入什么样的“良性摩擦阻力”，从而让我们能够与 AI 的冲击和平共处。"
+      },
+      {
+        "enHeading": "11. Let the Whac-A-Mole Begin",
+        "zhHeading": "十一、结语：按下葫芦浮起瓢，一场全民“打地鼠”游戏才刚刚开始",
+        "enText": "But for now a useful rule of thumb, if improbable claims start to be made for savings due to AI, will be that more isn't always better; faster and easier isn't always more convenient; and time saved in one section of public services has a horrible habit of popping up in another one. Let the Whac-A-Mole begin.",
+        "zhText": "但就目前而言，当有人开始大肆吹嘘 AI 能带来多么不可思议的成本节约时，一条非常管用的经验法则是：更多并不总是更好，更快更省事也并不总是更方便；而在公共服务的某一个部门里省下来的时间，往往有个可怕的坏习惯——它会在另一个部门里变本加厉地冒出来。让这场“打地鼠（Whac-A-Mole）”游戏开始吧。"
+      }
+    ],
+    "speaking": {
+      "question": "Why do time-saving technologies like generative AI often end up increasing workload and institutional congestion rather than giving people more leisure time?",
+      "modelAnswer": "The paradox stems from removing healthy friction from communication. When generative tools make producing text effortless, institutions are rapidly swamped by an uncontrollable firehose of meaningless machine-generated guff. As seen in recruitment and legal tribunals, shortcuts stop being shortcuts once everyone else is using them too; instead, both sides end up reaping what they sowed, requiring hours of patient disentangling by a human to separate the wheat from an avalanche of chaff.",
+      "targetPhrases": [
+        "streamlining public service delivery",
+        "patient disentangling by a human",
+        "an uncontrollable firehose of meaningless machine-generated guff",
+        "reaping what they sowed",
+        "separate the wheat from an avalanche of chaff",
+        "shortcuts stop being shortcuts once everyone else is using them too"
+      ]
+    }
+  },
+  {
     "id": "guardian-ai-judgment-2026",
     "badge": "THE GUARDIAN · 20 OCT 2026 · TECH & WORK",
     "author": "Madhu Shashanka (CTO at Concentric AI)",
