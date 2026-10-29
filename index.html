@@ -165,7 +165,66 @@
         }
     </style>
 </head>
-<body class="bg-paper text-obsidian font-sans antialiased selection:bg-orange-100 selection:text-orange-900 min-h-screen flex flex-col justify-between">
+<body class="consumer-edition bg-paper text-obsidian font-sans antialiased selection:bg-orange-100 selection:text-orange-900 min-h-screen flex flex-col justify-between">
+
+    <!-- VIP Commercial Access Gate Overlay -->
+    <div id="vipAccessGate" class="fixed inset-0 z-50 bg-paper/95 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300">
+        <div class="bg-white border border-editorial-border rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl space-y-6 text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-obsidian via-orange-600 to-amber-500"></div>
+            
+            <div class="w-12 h-12 rounded-xl bg-obsidian text-white font-display font-bold text-2xl flex items-center justify-center mx-auto shadow-md">
+                V
+            </div>
+
+            <div class="space-y-2">
+                <div class="inline-block text-[11px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-200">
+                    VERITAS READER · VIP ACCESS
+                </div>
+                <h2 class="text-2xl font-black font-cnsans text-obsidian tracking-tight">
+                    C1/C2 外刊精读与口语工作台
+                </h2>
+                <p class="text-xs text-stone-500 leading-relaxed">
+                    请输入您的会员专属通行口令，解锁云端实时更新的全本外刊精读、C1/C2 词伙库及剑桥考官对练系统。
+                </p>
+            </div>
+
+            <div class="bg-stone-50 border border-editorial-border rounded-xl p-3 text-left space-y-1.5 text-xs text-stone-600">
+                <div class="flex items-center gap-2">
+                    <span class="text-orange-600 font-bold">✓</span>
+                    <span>《卫报》《ScienceDaily》等 100% 零删减双语对照</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-orange-600 font-bold">✓</span>
+                    <span>点击文中高亮词伙即刻唤出音标、原句与雅思 8.0+ 升级句</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-orange-600 font-bold">✓</span>
+                    <span>内置全文 TTS 朗读、生词闪卡库与苏格拉底口语考官对练</span>
+                </div>
+            </div>
+
+            <div class="space-y-3 text-left">
+                <label for="vipCodeInput" class="block text-xs font-mono font-bold text-stone-700 uppercase tracking-wider">
+                    VIP 通行口令 (Access Code)
+                </label>
+                <input id="vipCodeInput" type="password" placeholder="请输入会员口令 (例如: VERITAS2026)" 
+                       onkeydown="if(event.key==='Enter') verifyVipAccess()"
+                       class="w-full px-4 py-3 text-sm font-mono bg-stone-50 border border-editorial-border rounded-xl focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 focus:outline-hidden text-obsidian" />
+                <p id="vipErrorMsg" class="hidden text-xs text-red-600 font-medium">
+                    ⚠️ 口令无效，请核对您的会员通行码后重试。
+                </p>
+                <button onclick="verifyVipAccess()" class="w-full py-3 rounded-xl bg-obsidian hover:bg-stone-800 text-white font-semibold text-sm shadow-sm transition-all cursor-pointer">
+                    立即解锁精读工作台 →
+                </button>
+            </div>
+
+            <div class="pt-2 border-t border-editorial-border flex items-center justify-between text-[11px] text-stone-400">
+                <span>支持多端同步 · 一次验证自动记忆</span>
+                <span>IELTS 8.0+ / C1-C2 Studio</span>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Top Sticky Header & Control Bar -->
     <header class="sticky top-0 z-40 bg-paper/95 backdrop-blur-md border-b border-editorial-border shadow-xs">
@@ -554,12 +613,77 @@
                 <span>Designed for Serious Learners</span>
                 <span>•</span>
                 <span>IELTS 8.0+ Ready</span>
+                <span>•</span>
+                <button onclick="resetVipAccess()" class="text-stone-400 hover:text-stone-700 underline cursor-pointer">切换通行证</button>
             </div>
         </div>
     </footer>
 
     <!-- App State & Interactive Logic -->
     <script>
+        /* ==========================================================
+           0. COMMERCIAL VIP ACCESS GATE & ADMIN MODE CONTROL
+           ========================================================== */
+        // 买家通行口令（可随时在此增删或修改口令，修改后全网自动生效）：
+        const VIP_BUYER_CODES = ['VERITAS2026', 'VIP2026', 'READER888'];
+        // 主理人管理员口令（输入此口令将自动开启「+ 新期刊」与「更换配图」后台按钮）：
+        const ADMIN_MASTER_CODE = 'ADMIN888';
+        const VIP_STORAGE_KEY = 'veritas_vip_token_v1';
+
+        function checkInitialVipState() {
+            try {
+                const savedToken = localStorage.getItem(VIP_STORAGE_KEY);
+                if (!savedToken) return;
+                if (savedToken === ADMIN_MASTER_CODE) {
+                    unlockStudio(true);
+                } else if (VIP_BUYER_CODES.includes(savedToken)) {
+                    unlockStudio(false);
+                }
+            } catch (e) {
+                console.warn('Storage check skipped:', e);
+            }
+        }
+
+        function verifyVipAccess() {
+            const inputEl = document.getElementById('vipCodeInput');
+            const errEl = document.getElementById('vipErrorMsg');
+            const code = (inputEl ? inputEl.value : '').trim().toUpperCase();
+
+            if (code === ADMIN_MASTER_CODE) {
+                try { localStorage.setItem(VIP_STORAGE_KEY, code); } catch (e) {}
+                unlockStudio(true);
+                showEditorialToast('已解锁主理人管理模式（后台管理按钮已激活）');
+            } else if (VIP_BUYER_CODES.includes(code)) {
+                try { localStorage.setItem(VIP_STORAGE_KEY, code); } catch (e) {}
+                unlockStudio(false);
+                showEditorialToast('欢迎进入 Veritas Reader C1/C2 精读工作台！');
+            } else {
+                if (errEl) errEl.classList.remove('hidden');
+            }
+        }
+
+        function unlockStudio(isAdmin) {
+            const gate = document.getElementById('vipAccessGate');
+            if (gate) gate.classList.add('hidden');
+            const errEl = document.getElementById('vipErrorMsg');
+            if (errEl) errEl.classList.add('hidden');
+
+            if (isAdmin) {
+                document.body.classList.remove('consumer-edition');
+            } else {
+                document.body.classList.add('consumer-edition');
+            }
+        }
+
+        function resetVipAccess() {
+            try { localStorage.removeItem(VIP_STORAGE_KEY); } catch (e) {}
+            const inputEl = document.getElementById('vipCodeInput');
+            if (inputEl) inputEl.value = '';
+            const gate = document.getElementById('vipAccessGate');
+            if (gate) gate.classList.remove('hidden');
+            document.body.classList.add('consumer-edition');
+        }
+
         /* ==========================================================
            1. DATA ARCHITECTURE: Dynamic Cloud JSON Loader (articles.json)
            ========================================================== */
@@ -598,6 +722,7 @@
            3. INITIALIZATION & RENDER (Async Cloud Fetch from articles.json)
            ========================================================== */
         async function init() {
+            checkInitialVipState();
             updateVaultBadge();
             setupKeyboardShortcuts();
             try {
