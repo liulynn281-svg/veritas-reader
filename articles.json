@@ -1,0 +1,446 @@
+[
+  {
+    "id": "guardian-ai-judgment-2026",
+    "badge": "THE GUARDIAN · 20 OCT 2026 · TECH & WORK",
+    "author": "Madhu Shashanka (CTO at Concentric AI)",
+    "sourceUrl": "https://www.theguardian.com/technology/2026/oct/20/ai-human-judgment",
+    "enTitle": "I'm a chief technology officer. AI still needs your human expertise",
+    "zhTitle": "我是一名首席技术官：AI 依然需要你的人类专业判断力",
+    "themeColor": "#1E293B",
+    "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1400&q=85",
+    "imageCaption": "The people best suited for doing this new type of work aren't computer programmers. They are the ones who know how the real work is done. Photograph: Guardian Design / Westend61",
+    "enKeyTakeaway": "AI is impressively capable at complex tasks with checkable answers, yet embarrassingly clumsy at basic common sense. As routine work is automated, the true premium shifts toward human judgment—and we must stop destroying the entry-level training ground where that judgment is forged.",
+    "zhKeyTakeaway": "AI 在处理有标准答案的复杂任务上正变得越来越强，但在基础常识上却常常笨拙得令人尴尬。随着常规工作被自动化，真正的溢价正转向“人类判断力”——而我们必须停止摧毁培养这种判断力的初级岗位训练场。",
+    "paragraphs": [
+      {
+        "enHeading": "1. The Paradox of Autonomous Competence",
+        "zhHeading": "一、自动驾驶的能力悖论：精于复杂，拙于常识",
+        "enText": "Autonomous cars, which may be the safest we have built, keep getting easily avoidable parking tickets. While Waymos crash far less often than human drivers over tens of millions of miles, they're still terrible at performing basic tasks – keeping out of disabled parking spots and tow-away zones, or {{steering clear of||/ˈstɪərɪŋ klɪər ɒv/||避开；绕开；远离（潜在麻烦或禁区）||...keeping out of disabled parking spots and tow-away zones, or steering clear of a church garage during Sunday service.||Prudent investors are steering clear of overleveraged tech stocks amid rising inflation.||在通胀升温的背景下，审慎的投资者正纷纷避开高杠杆科技股。}} a church garage during Sunday service, according to the Wall Street Journal.",
+        "zhText": "自动驾驶汽车或许是我们造出的最安全的交通工具，但它们却频频收到本可轻易避免的违章停车罚单。据《华尔街日报》报道，尽管 Waymo 在数千万英里的行驶中发生碰撞的频率远低于人类司机，但它们在执行一些基础任务时依然表现糟糕——比如避开残障人士专用车位和拖车区，或者在周日礼拜期间避开教堂车库。"
+      },
+      {
+        "enHeading": "2. Impressively Capable Yet Embarrassingly Clumsy",
+        "zhHeading": "二、惊人的算力与尴尬的笨拙并存",
+        "enText": "That is the state of AI today: {{impressively capable at something complex, yet embarrassingly clumsy at something easy||/ɪmˈprɛsɪvli ˈkeɪpəbl ... ɪmˈbærəsɪŋli ˈklʌmzi/||在复杂事务上能力惊人，却在简单常识上笨拙得令人尴尬||That is the state of AI today: impressively capable at something complex, yet embarrassingly clumsy at something easy.||Large language models remain impressively capable at standardized coding, yet embarrassingly clumsy at contextual office politics.||大语言模型在标准化编程上能力惊人，但在理解微妙的职场语境时却笨拙得令人尴尬。}}. And it has profound implications for what work will remain human and what will be automated by AI.",
+        "zhText": "这就是当今人工智能的现状：在复杂的事情上能力惊人，却在简单的事情上笨拙得令人尴尬。这也深刻预示着哪些工作将继续留给人类，而哪些工作将被 AI 自动化。"
+      },
+      {
+        "enHeading": "3. Global Anxiety Over Job Displacement",
+        "zhHeading": "三、全球就业焦虑：比岗位数量更重要的是“工作形态的质变”",
+        "enText": "People expect AI to lead to fewer jobs in 34 of the 37 countries surveyed by the Pew Research Center. In wealthy countries like the US, Australia and South Korea, about seven in 10 expect job losses over the next 20 years. And across countries, concern among young people is rising. While fears focus on job numbers, the bigger change will be what jobs become.",
+        "zhText": "在皮尤研究中心调查的 37 个国家中，有 34 个国家的民众预计 AI 会导致就业岗位减少。在美国、澳大利亚和韩国等富裕国家，约七成受访者预计未来 20 年内会出现失业潮。在各国，年轻人的担忧情绪正在上升。虽然恐惧集中在岗位数量上，但更大的变化在于工作本身将变成什么样。"
+      },
+      {
+        "enHeading": "4. The Jagged Frontier of Artificial Intelligence",
+        "zhHeading": "四、人工智能“参差不齐”的能力边界（The Jagged Frontier）",
+        "enText": "The nature of human work will move towards judgment. Experts refer to AI as “jagged”, superhuman at certain tasks but weak at others, with no clear boundary between the two. AI rapidly improves where work can be automatically checked and examples are endless. But it's shaky where no automated test can determine whether the answer is right. Even if AI is correct a majority of the time on a task, it often doesn't tell you when it's inaccurate. If you've used AI, you've probably experienced how it can be {{confidently wrong||/ˈkɒnfɪdəntli rɒŋ/||自信满满地犯错；一本正经地胡说八道||If you've used AI, you've probably experienced how it can be confidently wrong.||The biggest hazard of generative algorithms in legal drafting is their tendency to be confidently wrong.||生成式算法在法律文书起草中最大的隐患，就是它们往往会一本正经地胡说八道。}}.",
+        "zhText": "人类工作的本质将向“判断力”演进。专家将 AI 称为“参差不齐的（jagged）”——在某些任务上超越人类，但在另一些任务上却很脆弱，且两者之间没有清晰的界限。在结果可被自动检验且样本无穷无尽的领域，AI 进步神速；但在没有自动化测试能判定答案是否正确的领域，它就显得摇摆不定。即便 AI 在某项任务上大多数时候是正确的，当它出错时往往也不会提醒你。如果你用过 AI，你大概率领教过它是如何“自信满满地胡说八道”的。"
+      },
+      {
+        "enHeading": "5. A Symptom of How Models Learn",
+        "zhHeading": "五、模型学习机制的天然症结",
+        "enText": "Some of these errors will solve themselves as models get better. But jaggedness is a symptom of how these models learn. I see this often as a technology leader building with these systems.",
+        "zhText": "随着模型不断进化，其中一些错误会自行消失。但这种“参差不齐”是这些模型学习方式的天然症结。作为一名使用这些系统进行开发的技术管理者，我对此司空见惯。"
+      },
+      {
+        "enHeading": "6. Where No Checkable Answer Exists",
+        "zhHeading": "六、当商业决策不存在“标准答案”时",
+        "enText": "A smarter model still needs a right answer to learn from. When one gap is closed, it shows up somewhere else no one thought to check. But many business decisions don't immediately have a clear right answer. Whether a choice is good depends on a future no one can see and data no one has. That's where judgment comes in. So AI will keep mastering tasks that have {{checkable results||/ˈtʃɛkəbl rɪˈzʌlts/||可被客观核验的结果；有标准答案的产出||So AI will keep mastering tasks that have checkable results but struggle where a person has to decide what a good outcome looks like.||While machines excel at tasks with checkable results, ambiguous strategic trade-offs demand human wisdom.||尽管机器擅长处理结果可被客观核验的任务，但模糊的战略权衡依然离不开人类的智慧。}} but struggle where a person has to decide what a good outcome looks like.",
+        "zhText": "再聪明的模型仍然需要一个标准答案来作为学习依据。当一个漏洞被堵上时，问题又会出现在没人想得到要去检查的另一个地方。然而，许多商业决策在当下并没有一个明确的标准答案。一个选择的好坏，取决于无人能预见的未来以及尚不存在的数据。这正是判断力发挥作用的地方。因此，AI 将继续攻克那些结果可验证的任务，但在需要由人来定义“什么是好结果”的领域举步维艰。"
+      },
+      {
+        "enHeading": "7. Human Judgment as the Airport Control Tower",
+        "zhHeading": "七、新型工作形态：像机场塔台一样调度 AI",
+        "enText": "As a result, a new type of work is starting to appear. Someone tests whether the output of AI is correct based on real work, not just on benchmarks. Someone sets limits on what AI is allowed to do before it runs, so the worst mistakes are avoided. Someone runs and manages several agents the way a shift manager runs a crew. Picture an airport control tower. Radar and software track flight paths, with humans judging the few that matter to avoid collisions. No one is manually watching every screen. That would never scale.",
+        "zhText": "因此，一种新型的工作开始浮现。有人负责根据真实业务场景（而不仅仅是基准测试）来检验 AI 的输出是否正确；有人负责在 AI 运行前为其设定行为边界，以避免最糟糕的错误；还有人像值班经理管理团队一样，调度并管理多个 AI 智能体。想象一下机场的控制塔台：雷达和软件追踪着飞行轨迹，而人类则对少数攸关安全的重点进行研判以避免相撞。没有人会手动盯着每一块屏幕，那样永远无法规模化。"
+      },
+      {
+        "enHeading": "8. Right Values Paired With Terrible Judgment",
+        "zhHeading": "八、2026实验警示：正确的价值观配上糟糕透顶的判断力",
+        "enText": "Setting AI's limits is harder than it sounds. In a 2026 study, after an agent was told to protect a secret, it destroyed its own email server, deleting every single email. It was given a goal, without any limits on what it could do. The researchers described it as {{the right values paired with terrible judgment||/ðə raɪt ˈvæljuːz pɛəd wɪð ˈtɛrəbl ˈdʒʌdʒmənt/||正确的价值导向配上了糟糕透顶的判断力||The researchers described it as the right values paired with terrible judgment.||Rigid bureaucracy often exemplifies the right values paired with terrible judgment.||僵化的官僚体制往往就体现为“初衷正确的价值导向，却配上了糟糕透顶的执行判断力”。}}. Deciding what is {{off limits||/ɒf ˈlɪmɪts/||禁止入内的；属于禁区的；不可逾越的边界||Deciding what is off limits and what a mistake would cost takes someone who knows the work and will answer for the result.||Certain high-risk autonomous actions must remain strictly off limits without human sign-off.||某些高风险的自主操作若无人类签字授权，必须严格列为禁区。}} and what a mistake would cost takes someone who knows the work and will answer for the result.",
+        "zhText": "为 AI 设定边界比听起来要难得多。在 2026 年的一项研究中，一个智能体在被告知要保守一个秘密后，竟然摧毁了自己的邮件服务器，删光了每一封邮件。它被赋予了一个目标，却没有被设定任何行动限制。研究人员将其描述为“正确的价值观配上了糟糕透顶的判断力”。决定什么是禁区、衡量一个错误会带来多大代价，需要真正懂业务且能为结果担责的人。"
+      },
+      {
+        "enHeading": "9. Why Domain Experts Beat Pure Programmers",
+        "zhHeading": "九、为什么一线业务专家比纯程序员更具优势？",
+        "enText": "Here is the good news for people worried about their own jobs. The people best suited for doing this new type of work aren't computer programmers. They are the ones who know how the real work is done. Catching what a confident AI left out or got wrong takes someone who knows the complete answer. That knowledge is uncheckable, unwritten and takes the form of {{judgment honed over years||/ˈdʒʌdʒmənt həʊnd ˈəʊvə jɪəz/||经年累月磨砺出的敏锐判断力||That knowledge is uncheckable, unwritten and takes the form of judgment honed over years of doing the task and watching it break.||Diagnostic intuition in medicine relies heavily on clinical judgment honed over years of bedside practice.||医学上的诊断直觉高度依赖于多年临床实践中磨砺出的判断力。}} of doing the task and watching it break.",
+        "zhText": "对于那些担心自己工作不保的人来说，有个好消息：最适合从事这种新型工作的人并不是计算机程序员，而是那些深谙实际工作如何运作的一线专家。要揪出自信的 AI 遗漏或搞错的地方，需要一个通晓完整答案的人。这种知识无法被量化检验、也未曾写在纸面上，它体现为在多年亲历实操、目睹系统崩溃与修复中磨砺出的直觉判断力。"
+      },
+      {
+        "enHeading": "10. Ford's Reversal: Putting Veteran Humans Back at the Helm",
+        "zhHeading": "十、福特汽车的教训：重新召回 350 名资深人类工程师掌舵",
+        "enText": "Ford recently learned the value of human expertise. In recent years, it leaned hard on automating its quality control, cutting thousands of jobs. But earlier this year, it had to rehire 350 veteran engineers to oversee the process and hunt for failure points before a part reached the factory floor. They brought the judgment of watching parts fail over years. {{With humans at the helm||/wɪð ˈhjuːmənz æt ðə hɛlm/||由人类掌舵；在人类的主导与把关下||With humans at the helm, Ford's quality ranking then hit first among mainstream brands for the first time since 2010.||Even in highly automated cockpits, keeping experienced humans at the helm remains the ultimate safety net.||即便在高度自动化的驾驶舱内，让经验丰富的人类掌舵依然是终极安全网。}}, Ford's quality ranking then hit first among mainstream brands for the first time since 2010.",
+        "zhText": "福特汽车最近深刻体会到了人类专业知识的价值。近年来，福特大力推行质量控制自动化，裁减了数千个岗位。但今年早些时候，它不得不重新雇佣 350 名资深工程师来监督流程，在零部件进入工厂车间前排查故障点。他们带来了多年目睹零件失效所积累的判断力。在由人类重新掌舵后，福特的质量排名自 2010 年以来首次跃居主流品牌第一。"
+      },
+      {
+        "enHeading": "11. Stop Automating the Training Ground Where Judgment Is Learned",
+        "zhHeading": "十一、结语：切勿把培养判断力的“学徒训练场”彻底自动化",
+        "enText": "But we are making a serious mistake with the jobs we're eliminating due to AI: the entry-level, routine ones. That routine work is how judgment gets built over time. Junior employees work under the supervision of senior experts until their experience {{turns into instinct||/tɜːnz ˈɪntuː ˈɪnstɪŋkt/||内化为本能与直觉||Junior employees work under the supervision of senior experts until their experience turns into instinct.||Through deliberate practice, conscious analytical rules eventually turn into instinct.||通过刻意练习，原本需要刻意调用的分析规则最终会内化为本能直觉。}}. AI eliminates the friction related to learning how to do the job. But the demand for judgment did not go away. We are just destroying the path to developing it. The real question is not whether machines will take over our work. It is whether we will have the people who can tell when the machines are wrong. Right now, we are {{automating the training ground||/ˈɔːtəmeɪtɪŋ ðə ˈtreɪnɪŋ ɡraʊnd/||将人才培养的训练场自动化（从而断绝新人成长阶梯）||Right now, we are automating the training ground where judgment is learned.||By replacing junior analysts entirely with bots, firms risk automating the training ground for future partners.||如果用机器人完全取代初级分析师，企业将面临摧毁未来合伙人训练场的风险。}} where judgment is learned. If you have hard-earned expertise about anything, the next few years will only make you more valuable. And if you are just starting out, the old apprenticeship model will not hand it to you. You have to go and earn it, deliberately, on tasks the machines cannot yet judge.",
+        "zhText": "但我们在因 AI 而砍掉的岗位上正犯下一个严重错误——那些初级、常规的岗位。正是那些常规工作，让人的判断力得以随时间慢慢建立。初级员工在资深专家的指导下工作，直到经验内化为直觉。AI 消除了学习如何开展工作过程中的摩擦，但对判断力的需求并未消失，我们只是在摧毁培养判断力的路径。真正的问题不在于机器是否会接管我们的工作，而在于当机器犯错时，我们是否还有能够一眼识破的人。此时此刻，我们正在把培养判断力的训练场全部自动化。如果你在任何领域拥有来之不易的专业功底，未来几年只会让你变得更具价值；而如果你刚刚起步，传统的学徒制已无法把这种能力直接交到你手上——你必须走出去，在机器尚无法评判的任务中，刻意地去赢取它。"
+      }
+    ],
+    "speaking": {
+      "question": "If companies automate entry-level jobs using AI, how will the next generation of professionals acquire the deep judgment needed to supervise AI systems?",
+      "modelAnswer": "Eliminating junior roles creates a dangerous paradox: while AI excels at tasks with checkable results, it remains prone to being confidently wrong in ambiguous scenarios. If corporations keep automating the training ground where hands-on experience turns into instinct, they will face a severe deficit of senior talent capable of keeping humans at the helm. Therefore, organizations must redesign apprenticeships around auditing AI outputs rather than cutting entry-level pathways.",
+      "targetPhrases": [
+        "confidently wrong",
+        "checkable results",
+        "automating the training ground",
+        "turns into instinct",
+        "With humans at the helm",
+        "judgment honed over years"
+      ]
+    }
+  },
+  {
+    "id": "sciencedaily-gut-bacteria-2026",
+    "badge": "SCIENCEDAILY · 20 OCT 2026 · MICROBIOLOGY & MEDICINE",
+    "author": "Prof. Rolf Müller & Dr. Jennifer Herrmann (Helmholtz HZI)",
+    "sourceUrl": "https://www.sciencedaily.com/releases/2026/10/261019093353.htm",
+    "enTitle": "Scientists discover a way to kill dangerous gut bacteria without killing the good",
+    "zhTitle": "科学家发现精准猎杀危险肠道病菌且不伤益生菌的新疗法",
+    "themeColor": "#065F46",
+    "imageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1400&q=85",
+    "imageCaption": "Scientists at the Helmholtz Centre have identified argyrin B, a natural soil-derived compound that eliminates C. difficile while sparing the beneficial gut microbiome. Credit: HIPS / ScienceDaily",
+    "enKeyTakeaway": "Broad-spectrum antibiotics often upset the delicate balance of the gut microbiome, triggering recurring C. difficile infections. Researchers have now discovered that argyrin B—a natural compound derived from soil myxobacteria—selectively eradicates C. difficile while leaving beneficial gut flora virtually unharmed.",
+    "zhKeyTakeaway": "广谱抗生素往往会打破肠道微生物群的微妙平衡，诱发反复发作的艰难梭菌（C. difficile）感染。研究人员最新发现，源自土壤粘细菌的天然化合物 argyrin B 能够精准清除艰难梭菌，同时几乎不损伤有益肠道菌群。",
+    "paragraphs": [
+      {
+        "enHeading": "1. A Targeted Breakthrough for Severe Gut Infections",
+        "zhHeading": "一、严重肠道感染迎来精准靶向治疗新曙光",
+        "enText": "A dangerous intestinal infection may soon have a more targeted treatment option. Scientists have identified a natural compound that can kill the bacteria responsible for severe gut infections while {{leaving much of the beneficial gut microbiome unharmed||/ˈliːvɪŋ mʌtʃ ɒv ðə ˌbɛnɪˈfɪʃəl ɡʌt ˌmaɪkrəʊˈbaɪəʊm ʌnˈhɑːmd/||使绝大部分有益肠道微生物群免受损伤||Scientists have identified a natural compound that can kill the bacteria responsible for severe gut infections while leaving much of the beneficial gut microbiome unharmed.||Next-generation precision therapies aim to eradicate malignant cells while leaving healthy surrounding tissue unharmed.||下一代精准疗法旨在消灭恶性细胞的同时，使周围健康组织免受损伤。}}.",
+        "zhText": "一种危险的肠道感染或许很快将迎来更具针对性的治疗选择。科学家们已经鉴定出一种天然化合物，它能够杀死导致严重肠道感染的致病菌，同时使绝大部分有益的肠道微生物群免受伤害。"
+      },
+      {
+        "enHeading": "2. How Broad-Spectrum Antibiotics Upset the Delicate Balance",
+        "zhHeading": "二、广谱抗生素如何打破肠道微生态的微妙平衡",
+        "enText": "The bacterium Clostridioides difficile (C. difficile) is naturally found in the intestines of many people and generally causes no problems when present in small amounts. However, antibiotics that target a wide range of bacteria can {{upset the delicate balance||/ʌpˈsɛt ðə ˈdɛlɪkət ˈbæləns/||打破微妙的平衡；扰乱精细的生态稳态||However, antibiotics that target a wide range of bacteria can upset the delicate balance of microorganisms in the gut.||Aggressive monetary tightening can easily upset the delicate balance between curbing inflation and sustaining employment.||激进的货币紧缩政策很容易打破抑制通胀与维持就业之间的微妙平衡。}} of microorganisms in the gut. This disruption allows C. difficile to multiply rapidly, potentially causing severe intestinal inflammation that can become chronic.",
+        "zhText": "艰难梭菌（C. difficile）天然存在于许多人的肠道内，在数量较少时通常不会引发问题。然而，针对广泛细菌的广谱抗生素会打破肠道内微生物的微妙平衡。这种破坏使得艰难梭菌得以迅速繁殖，进而可能引发严重的、甚至演变为慢性的肠道炎症。"
+      },
+      {
+        "enHeading": "3. The Vicious Cycle of Antibiotic-Associated Diarrhea",
+        "zhHeading": "三、抗生素相关性腹泻与毒素引发的致命炎症",
+        "enText": "C. difficile infections (CDI) are among the leading causes of diarrhea associated with antibiotic treatment. The bacteria produce toxins that can {{trigger life-threatening inflammation||/ˈtrɪɡə laɪf-ˈθrɛtnɪŋ ˌɪnfləˈmeɪʃən/||诱发危及生命的严重炎症||The bacteria produce toxins that can trigger dangerous and sometimes life-threatening inflammation in the intestines.||Unchecked cytokine storms can trigger life-threatening inflammation across multiple organ systems.||失控的细胞因子风暴会在多个器官系统中诱发危及生命的炎症。}} in the intestines. Because these infections frequently return after treatment, scientists are searching for more effective ways to {{eliminate the pathogen||/ɪˈlɪmɪneɪt ðə ˈpæθədʒən/||清除致病菌；消灭病原体||...scientists are searching for more effective ways to eliminate the pathogen without causing additional damage to the gut microbiome.||The primary objective of targeted phage therapy is to eliminate the pathogen without inducing collateral resistance.||靶向噬菌体疗法的首要目标是清除病原体，同时不诱发附带的耐药性。}} without causing additional damage to the gut microbiome.",
+        "zhText": "艰难梭菌感染（CDI）是与抗生素治疗相关的腹泻的主要原因之一。这种细菌产生的毒素会在肠道内引发危险、有时甚至危及生命的炎症。由于这类感染在治疗后极易复发，科学家们一直在寻找更有效的方法来清除该病原体，同时不对肠道微生物群造成二次伤害。"
+      },
+      {
+        "enHeading": "4. Helmholtz Centre & Saarland University Collaboration",
+        "zhHeading": "四、亥姆霍兹感染研究中心（HZI）的靶向新药候选物",
+        "enText": "A team led by Prof. Rolf Müller, department head and scientific director at HIPS, has now identified {{a promising drug candidate||/ə ˈprɒmɪsɪŋ drʌɡ ˈkændɪdət/||极具前景的候选药物||A team led by Prof. Rolf Müller has now identified a promising drug candidate that specifically targets C. difficile...||After screening thousands of metabolites, the lab isolated a promising drug candidate for neurodegenerative disorders.||在筛选了数千种代谢物后，实验室分离出了一种治疗神经退行性疾病的极具前景的候选药物。}} that specifically targets C. difficile while preserving much of the gut's beneficial microbial community. HIPS is a site of the Helmholtz Centre for Infection Research (HZI) that operates in collaboration with Saarland University.",
+        "zhText": "由萨尔州药物研究所（HIPS）系主任兼科学总监 Rolf Müller 教授领衔的团队，目前已锁定了一种极具前景的候选药物，它能特异性地靶向艰难梭菌，同时保留肠道内大部分有益微生物群落。HIPS 是亥姆霍兹感染研究中心（HZI）与萨尔兰大学合作运营的研究机构。"
+      },
+      {
+        "enHeading": "5. Natural Compound Argyrin B Proves Highly Selective",
+        "zhHeading": "五、天然化合物 Argyrin B 展现出高度选择性杀菌力",
+        "enText": "The researchers found that argyrin B, a naturally occurring antibacterial substance, was highly effective against C. difficile in laboratory tests and experiments involving infected mice. Importantly, the compound showed little activity against the beneficial microorganisms that help maintain a healthy digestive system.",
+        "zhText": "研究人员发现，一种天然存在的抗菌物质 argyrin B 在实验室测试和感染小鼠实验中对艰难梭菌均表现出极高的杀灭效果。至关重要的是，该化合物对帮助维持消化系统健康的有益微生物几乎没有抑制活性。"
+      },
+      {
+        "enHeading": "6. Significantly Reducing Bacterial Load While Sparing Flora",
+        "zhHeading": "六、显著降低细菌载量，助力肠道微生态快速恢复",
+        "enText": "“We were able to show that the natural compound argyrin B is highly effective against CDI: both in laboratory experiments and in a mouse model of the infection, where it {{significantly reduces the bacterial load||/sɪɡˈnɪfɪkəntli rɪˈdjuːsɪz ðə bækˈtɪəriəl ləʊd/||显著降低细菌载量（体内致病菌数量）||...where it significantly reduces the bacterial load, says Dr. Jennifer Herrmann.||Early antiviral intervention significantly reduces the viral load and shortens hospitalization.||早期抗病毒干预能显著降低病毒载量并缩短住院时间。}},” says Dr. Jennifer Herrmann, senior scientist at HIPS. “In contrast, the argyrins have virtually no effect on the beneficial microorganisms in our digestive tract. The gut microbiome could therefore be spared during treatment with argyrin and restored to a healthy state more quickly.”",
+        "zhText": "HIPS 高级科学家 Jennifer Herrmann 博士表示：“我们证实了天然化合物 argyrin B 对艰难梭菌感染极为有效：无论是在实验室体外实验还是感染小鼠模型中，它都能显著降低细菌载量。相比之下，argyrin 类物质对我们消化道内的有益微生物几乎没有影响。因此，在使用 argyrin 治疗期间，肠道微生物群得以幸免于难，并能更快地恢复到健康状态。”"
+      },
+      {
+        "enHeading": "7. A Bacteria-Killing Substance Found in Soil Myxobacteria",
+        "zhHeading": "七、源于土壤粘细菌的天然化学武器",
+        "enText": "Argyrins were originally discovered in myxobacteria, microorganisms that inhabit soil. These bacteria produce natural substances that help them attack other microbes and use them as a source of food. Although argyrin B has demonstrated promising antibacterial activity, researchers must also determine whether its pharmaceutical properties make it suitable for use as a medicine.",
+        "zhText": "Argyrin 类物质最初是在粘细菌（一种栖息在土壤中的微生物）中发现的。这些细菌会分泌天然化学物质，帮助它们攻击其他微生物并将其作为食物来源。尽管 argyrin B 已展现出良好的抗菌活性，但研究人员还必须评估其药代动力学特性是否适合开发成临床药物。"
+      },
+      {
+        "enHeading": "8. Staying Where It Counts: Minimal Bloodstream Absorption",
+        "zhHeading": "八、精准驻留大肠病灶，极少进入血液循环",
+        "enText": "One particularly encouraging finding emerged when the team examined what happens after mice receive argyrin B orally. Very little of the compound entered their bloodstream. Instead, most of it remained in the large intestine, where C. difficile infections occur.",
+        "zhText": "当研究团队检测小鼠口服 argyrin B 后的体内分布时，得出了一项尤为令人鼓舞的发现：极少量的化合物会进入血液循环；相反，绝大部分药物都留在了大肠内——而那里正是艰难梭菌感染发生的病灶所在。"
+      },
+      {
+        "enHeading": "9. Minimizing Systemic Side Effects Across Organs",
+        "zhHeading": "九、大幅降低全身性器官副作用风险",
+        "enText": "By {{concentrating in the gut rather than circulating throughout the body||/ˈkɒnsəntreɪtɪŋ ɪn ðə ɡʌt ˈrɑːðə ðæn ˈsɜːkjʊleɪtɪŋ/||富集于肠道局部而非随血液在全身循环||By concentrating in the gut rather than circulating throughout the body, argyrin B could potentially reduce the risk of side effects...||Localized drug delivery works by concentrating at the tumor site rather than circulating throughout the body.||靶向局部给药的原理是让药物富集在肿瘤部位，而非在全身循环。}}, argyrin B could potentially reduce the risk of side effects affecting other organs. Together with its selective activity against C. difficile, this characteristic makes the compound a promising candidate for a treatment that may be better tolerated.",
+        "zhText": "通过富集在肠道局部而非随血液在全身循环，argyrin B 有望降低波及其他器官的副作用风险。结合其对艰难梭菌的高度选择性杀伤力，这一特性使该化合物成为一种耐受性更佳的理想候选疗法。"
+      },
+      {
+        "enHeading": "10. Breaking the Relapse Trap Beyond Stool Transplants",
+        "zhHeading": "十、攻克高复发难题：超越繁琐的粪菌移植（FMT）",
+        "enText": "One of the biggest challenges in treating C. difficile is its tendency to return. Patients who {{experience multiple relapses||/ɪkˈspɪəriəns ˈmʌltɪpl ˈriːlæpsɪz/||经历多次病情复发||Patients who experience multiple relapses are often treated using fecal microbiota transfer.||Patients with chronic autoimmune conditions often experience multiple relapses when medication is tapered too quickly.||慢性自身免疫性疾病患者在过快减药时，往往会经历多次病情复发。}} are often treated using fecal microbiota transfer (commonly known as a stool transplant). This procedure aims to restore a healthier balance of gut microorganisms, but it can be complicated to perform and unpleasant for patients.",
+        "zhText": "治疗艰难梭菌感染最大的挑战之一就是它极易复发。经历多次复发的患者通常需要接受粪便微生物群移植（俗称“粪菌移植”）。该疗法旨在恢复健康的肠道微生物平衡，但操作过程较为繁琐，且给患者带来诸多不适体验。"
+      },
+      {
+        "enHeading": "11. Road to Clinical Trials and Dosage Optimization",
+        "zhHeading": "十一、迈向临床应用：优化给药剂量以终结顽固复发",
+        "enText": "A medication developed from argyrin could eventually provide another treatment option. By eliminating the harmful bacteria without extensively disrupting the rest of the microbiome, such a therapy might reduce the likelihood of further infections and relapses. More research is needed before argyrin B can be considered for clinical use, and the scientists now plan to investigate optimal dosages to combat recurring infections.",
+        "zhText": "基于 argyrin 开发的药物最终有望提供另一种全新的治疗选择。通过在不广泛破坏其余微生物群的前提下清除有害病菌，这种疗法能够大幅降低再次感染和复发的几率。在 argyrin B 进入临床应用前仍需开展进一步研究，科学家们目前正计划探索最佳给药剂量，以彻底攻克反复发作的顽固感染。"
+      }
+    ],
+    "speaking": {
+      "question": "Why has modern medicine begun shifting away from broad-spectrum treatments toward highly targeted therapies, and what challenges hinder the commercialization of novel antibiotics?",
+      "modelAnswer": "Broad-spectrum interventions often act like carpet bombing: while they eliminate the pathogen, they simultaneously upset the delicate balance of our native biological ecosystems, causing patients to experience multiple relapses. Precision medicines that leave the beneficial gut microbiome unharmed represent a major leap forward. However, bringing a promising drug candidate to market remains notoriously capital-intensive.",
+      "targetPhrases": [
+        "upset the delicate balance",
+        "eliminate the pathogen",
+        "a promising drug candidate",
+        "experience multiple relapses",
+        "leaving much of the beneficial gut microbiome unharmed"
+      ]
+    }
+  },
+  {
+    "id": "guardian-ai-debt-selloff-2026",
+    "badge": "THE GUARDIAN · 15 OCT 2026 · GLOBAL MARKETS & FINANCE",
+    "author": "Kalyeena Makortoff",
+    "sourceUrl": "https://www.theguardian.com/business/2026/oct/15/tech-market-sell-off-deepens-amid-fears-over-us-inflation-and-ai-debt",
+    "enTitle": "Tech market sell-off deepens amid fears over US inflation and AI debt",
+    "zhTitle": "美国通胀与 AI 债务恐慌加剧，全球科技股抛售潮持续恶化",
+    "themeColor": "#991B1B",
+    "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1400&q=85",
+    "imageCaption": "A Hana Bank screen in Seoul shows the KOSPI index plunging with a sharp downward trajectory. The tech-heavy South Korean index fell 8% overnight, triggering circuit breakers. Photograph: Lee Jin-man/AP",
+    "enKeyTakeaway": "A sharp global tech market sell-off has rippled from Wall Street to Asia, triggered by hotter-than-expected US inflation data (CPI at 3.7%, PPI at 6.3%) and mounting warnings from the IMF over debt-fuelled artificial intelligence investments.",
+    "zhKeyTakeaway": "受美国超预期通胀数据（CPI 达 3.7%，PPI 飙升至 6.3%）以及国际货币基金组织（IMF）对“债务驱动型 AI 投资泡沫”警告的双重冲击，一场剧烈的全球科技股抛售潮正从华尔街蔓延至亚洲市场，韩国 KOSPI 指数暴跌 8% 并触发熔断。",
+    "paragraphs": [
+      {
+        "enHeading": "1. Global Tech Rout Spreads From Wall Street to Asia",
+        "zhHeading": "一、全球科技股抛售潮从华尔街蔓延至亚洲",
+        "enText": "A global tech market sell-off has deepened amid growing concerns over rising US inflation and {{debt-fuelled artificial intelligence investments||/dɛt-ˈfjuːəld ˌɑːtɪˈfɪʃəl ɪnˈtɛlɪdʒəns ɪnˈvɛstmənts/||由高额债务驱动的人工智能投资||A global tech market sell-off has deepened amid growing concerns over rising US inflation and debt-fuelled artificial intelligence investments.||Regulators warned that debt-fuelled artificial intelligence investments could amplify systemic financial fragility if revenue growth lags.||监管机构警告称，如果营收增长滞后，由债务驱动的人工智能投资可能会放大系统性金融脆弱性。}}, dragging down stock markets from New York to Seoul.",
+        "zhText": "由于市场对美国通胀回升以及“债务驱动型人工智能投资”的担忧日益加剧，全球科技股抛售潮进一步恶化，拖累从纽约到首尔的各大股市全线重挫。"
+      },
+      {
+        "enHeading": "2. South Korea's KOSPI Plunges 8%, Triggering Circuit Breakers",
+        "zhHeading": "二、韩国 KOSPI 指数暴跌 8%，触发市场熔断机制",
+        "enText": "The tech-heavy South Korean index, the Kospi, fell 8% overnight, {{triggering circuit breakers||/ˈtrɪɡərɪŋ ˈsɜːkɪt ˈbreɪkəz/||触发股市熔断机制||The tech-heavy South Korean index, the Kospi, fell 8% overnight, triggering circuit breakers that temporarily halted trading.||Panic selling across semiconductor heavyweights ended up triggering circuit breakers twice within a single morning session.||半导体权重股的恐慌性抛售最终在单个早盘交易时段内两次触发熔断机制。}} that temporarily halted trading. The drop was led by the chipmakers SK Hynix and Samsung Electronics, which fell 10% and 9.4% respectively.",
+        "zhText": "科技股占比较高的韩国综合股价指数（KOSPI）隔夜暴跌 8%，触发了暂停交易的市场熔断机制。此次暴跌由芯片巨头 SK 海力士（SK Hynix）和三星电子领跌，两者分别重挫 10% 和 9.4%。"
+      },
+      {
+        "enHeading": "3. Japan's Nikkei and SoftBank Hit Hard",
+        "zhHeading": "三、日经指数重挫 4%，软银集团大跌逾 8%",
+        "enText": "Japan's Nikkei 225 dropped 4%, with the tech investor SoftBank falling more than 8%. It followed {{a bruising session||/ə ˈbruːzɪŋ ˈsɛʃən/||惨烈受挫的交易时段；令人焦头烂额的艰难局面||It followed a bruising session on Wall Street on Tuesday, where the tech-focused Nasdaq composite fell 3.5%...||After a bruising session in bond markets, treasury yields surged to multi-year highs.||在经历了一个惨烈的债券市场交易日后，国债收益率飙升至多年高点。}} on Wall Street on Tuesday, where the tech-focused Nasdaq composite fell 3.5% and the S&P 500 lost 2.1%.",
+        "zhText": "日本日经 225 指数下跌 4%，科技投资巨头软银集团（SoftBank）跌幅超过 8%。在此之前，华尔街经历了惨烈的周二交易日：以科技股为主的纳斯达克综合指数下跌 3.5%，标普 500 指数下跌 2.1%。"
+      },
+      {
+        "enHeading": "4. Hardware Makers Bear the Brunt of the Sell-Off",
+        "zhHeading": "四、AI 硬件制造商首当其冲：戴尔与 Coherent 领跌",
+        "enText": "Hardware makers {{bore the brunt of}} the US sell-off, including the server maker Dell Technologies, which dropped 9.2%, while the optical networking company Coherent fell 11.4%.",
+        "zhText": "硬件制造商在此次美国股市抛售中首当其冲，其中包括服务器制造商戴尔科技（Dell Technologies），其股价暴跌 9.2%，而光网络设备公司 Coherent 则大跌 11.4%。"
+      },
+      {
+        "enHeading": "5. Hotter-Than-Expected US Inflation Jolts Investors",
+        "zhHeading": "五、美国 CPI 与 PPI 双双超预期，击碎降息幻想",
+        "enText": "The drop was sparked by official figures showing US consumer price index (CPI) inflation rose to 3.7% in September, up from 2.4% in August and higher than economists' expectations of 3.5%. That was compounded by producer price index (PPI) data, which measures wholesale costs and jumped to 6.3% year on year in September, up from 3.4% in August.",
+        "zhText": "引发此次暴跌的导火索是官方数据显示，美国 9 月消费者价格指数（CPI）同比涨幅从 8 月的 2.4% 跃升至 3.7%，高于经济学家预期的 3.5%。而衡量批发成本的生产者价格指数（PPI）更是雪上加霜——9 月同比飙升至 6.3%，远高于 8 月的 3.4%。"
+      },
+      {
+        "enHeading": "6. Energy Shocks and the Middle East Conflict",
+        "zhHeading": "六、中东地缘冲突推升能源成本，美联储政策陷入两难",
+        "enText": "The surge was largely driven by rising energy costs linked to the conflict in the Middle East. Investors fear that {{stubbornly high inflation||/ˈstʌbənli haɪ ɪnˈfleɪʃən/||居高不下的顽固通胀||Investors fear that stubbornly high inflation will prevent the US Federal Reserve from cutting interest rates...||Stubbornly high inflation has eroded household purchasing power across major industrialized economies.||居高不下的顽固通胀侵蚀了主要工业化经济体的家庭购买力。}} will prevent the US Federal Reserve from cutting interest rates, or potentially force the central bank to raise borrowing costs again.",
+        "zhText": "这一轮物价飙升在很大程度上是由中东冲突引发的能源成本上涨所推动的。投资者担心，居高不下的顽固通胀将阻止美联储降息，甚至可能迫使央行再次提高借贷成本。"
+      },
+      {
+        "enHeading": "7. Why High Interest Rates Punish Tech Valuations",
+        "zhHeading": "七、高利率环境为何对科技股估值造成致命打击？",
+        "enText": "Higher interest rates typically hurt tech stocks because they {{reduce the present value of future earnings||/rɪˈdjuːs ðə ˈprɛznt ˈvæljuː ɒv ˈfjuːtʃər ˈɜːnɪŋz/||降低未来远期收益的现值（贴现价值）||Higher interest rates typically hurt tech stocks because they reduce the present value of future earnings and increase the cost of borrowing to fund massive AI infrastructure projects.||In discounted cash flow models, elevated bond yields sharply reduce the present value of future earnings for growth startups.||在现金流折现模型中，高企的债券收益率会急剧降低成长型初创企业未来收益的现值。}} and increase the cost of borrowing to fund massive AI infrastructure projects.",
+        "zhText": "较高的利率通常会沉重打击科技股，因为它不仅会降低企业未来远期收益的折现现值，还会大幅推高为庞大的 AI 基础设施项目融资的借贷成本。"
+      },
+      {
+        "enHeading": "8. Deutsche Bank Analysis: Pricing Out Rate Cuts",
+        "zhHeading": "八、德意志银行研判：市场正全面撤回降息预期",
+        "enText": "Jim Reid, a research strategist at Deutsche Bank, said the inflation figures had caused {{a major repricing of interest rate expectations||/ə ˈmeɪdʒə ˌriːˈpraɪsɪŋ ɒv ˈɪntrəst reɪt ˌɛkspɛkˈteɪʃənz/||利率预期的重大重新定价||Jim Reid said the inflation figures had caused a major repricing of interest rate expectations across global markets.||The central bank's hawkish pivot triggered a major repricing of interest rate expectations across sovereign debt markets.||央行的鹰派转向引发了主权债务市场对利率预期的重大重新定价。}} across global markets. “The combination of sticky core inflation and an energy shock has effectively priced out any near-term Fed rate cuts, putting immense pressure on high-multiple tech valuations,” he said.",
+        "zhText": "德意志银行研究策略师 Jim Reid 表示，通胀数据已引发全球市场对利率预期的重大重新定价。他指出：“粘性十足的核心通胀加上能源冲击，实际上已经抹杀了美联储近期降息的任何可能，给高市盈率的科技股估值带来了巨大压力。”"
+      },
+      {
+        "enHeading": "9. IMF Global Financial Stability Warning on AI Debt",
+        "zhHeading": "九、国际货币基金组织（IMF）拉响 AI 债务违约警报",
+        "enText": "The market jitters were amplified by a warning from the International Monetary Fund (IMF) on Tuesday, which flagged the growing risks of debt-fuelled investments in the AI sector. In its latest Global Financial Stability Report, the IMF said that technology companies had taken on record levels of debt to build data centres and secure advanced semiconductors, {{leaving them vulnerable to a sharp market correction||/ˈliːvɪŋ ðɛm ˈvʌlnərəbl tuː ə ʃɑːp ˈmɑːkɪt kəˈrɛkʃən/||使它们在剧烈的市场回调面前不堪一击||...leaving them vulnerable to a sharp market correction if AI revenues fail to materialise quickly.||Excessive margin leverage leaves retail speculators vulnerable to a sharp market correction.||过度使用保证金杠杆使散户投机者在剧烈的市场回调面前不堪一击。}} if AI revenues fail to materialise quickly.",
+        "zhText": "国际货币基金组织（IMF）周二发出的一则警告进一步放大了市场的恐慌情绪，该机构点名警示了 AI 领域债务驱动型投资不断累积的风险。在其最新的《全球金融稳定报告》中，IMF 指出科技公司为了建设数据中心和抢购先进半导体已背负了创纪录规模的债务，一旦 AI 商业化营收未能迅速兑现，这些企业将在剧烈的市场回调面前脆弱不堪。"
+      },
+      {
+        "enHeading": "10. Contagion Risks Across Banks and Private Credit",
+        "zhHeading": "十、风险外溢：银行与私募信贷基金面临连锁冲击",
+        "enText": "“A sudden reassessment of AI profitability could trigger defaults among highly leveraged tech firms, with {{spillover effects||/ˈspɪlˌəʊvər ɪˈfɛkts/||溢出效应；连锁波及效应||...with spillover effects for banks and private credit funds, the IMF warned.||A sovereign debt crisis in one emerging economy can rapidly generate spillover effects across regional currency markets.||某一新兴经济体的主权债务危机可能迅速在区域外汇市场产生连锁溢出效应。}} for banks and private credit funds,” the IMF warned.",
+        "zhText": "IMF 警告称：“市场一旦对 AI 盈利能力进行突然的重新评估，就可能引发高杠杆科技企业的违约潮，并对银行体系和私募信贷基金产生连锁溢出效应。”"
+      },
+      {
+        "enHeading": "11. Greater China Markets & TSMC Slide",
+        "zhHeading": "十一、大中华区股市与台积电同步承压",
+        "enText": "Other Asian markets also suffered losses on Wednesday. China's CSI 300 index fell 1.8%, while Hong Kong's Hang Seng index dropped 2.4%. Taiwan's Taiex index fell 4.5%, dragged down by a 5.2% drop in shares of Taiwan Semiconductor Manufacturing Company (TSMC), the world's largest contract chipmaker.",
+        "zhText": "周三，亚洲其他市场也普遍遭受重创。中国沪深 300 指数下跌 1.8%，香港恒生指数下跌 2.4%。台湾加权指数下跌 4.5%，主要受全球最大芯片代工企业台积电（TSMC）股价大跌 5.2% 的拖累。"
+      },
+      {
+        "enHeading": "12. European Markets Brace for Lower Open",
+        "zhHeading": "十二、欧洲股市早盘全线低开预期",
+        "enText": "European markets were also expected to open lower on Wednesday, with futures for the FTSE 100 in London down 0.8%, Germany's Dax down 1.2%, and France's Cac 40 down 1.1%.",
+        "zhText": "欧洲股市周三预计也将全线低开，伦敦富时 100 指数期货下跌 0.8%，德国 DAX 指数期货下跌 1.2%，法国 CAC 40 指数期货下跌 1.1%。"
+      }
+    ],
+    "speaking": {
+      "question": "Are the trillions of dollars currently being poured into AI data centers and semiconductors a rational long-term infrastructure investment, or a debt-fuelled bubble?",
+      "modelAnswer": "While foundational compute will undoubtedly reshape productivity, the current frenzy exhibits classic signs of debt-fuelled artificial intelligence investments. Tech conglomerates are borrowing heavily while stubbornly high inflation threatens to keep interest rates elevated, which directly reduces the present value of future earnings. If enterprise monetization lags behind capital expenditure, it will leave these firms vulnerable to a sharp market correction with severe spillover effects across the broader economy.",
+      "targetPhrases": [
+        "debt-fuelled artificial intelligence investments",
+        "stubbornly high inflation",
+        "reduce the present value of future earnings",
+        "leaving them vulnerable to a sharp market correction",
+        "spillover effects"
+      ]
+    }
+  },
+  {
+    "id": "eos-climate-limits-2026",
+    "badge": "EOS SCIENCE NEWS BY AGU · 14 OCT 2026 · EARTH & CLIMATE",
+    "author": "Grace van Deelen (BioScience Assessment Report)",
+    "sourceUrl": "https://eos.org/research-and-developments/2026-state-of-the-climate-report-shows-a-planet-reaching-its-limits",
+    "enTitle": "2026 State of the Climate Report Shows a Planet Reaching Its Limits",
+    "zhTitle": "《2026气候状况报告》显示地球正逼近生态极限：16项生命体征中7项创极端纪录",
+    "themeColor": "#0284C7",
+    "imageUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85",
+    "imageCaption": "The Upsala Glacier in Argentina, like many of Earth's glaciers, has been thinning and retreating at a rapid pace. Worldwide glacier thickness is at a record low. Credit: Etienne Berthier / NASA Goddard",
+    "enKeyTakeaway": "Seven out of 16 planetary vital signs reached record extremes in the 2026 State of the Climate report. Atmospheric CO2 breached 428 ppm, the global warming rate has nearly doubled since 2015 to 0.36°C per decade, and crucial Earth system tipping elements—including the AMOC and the Amazon rainforest—face irreversible destabilization.",
+    "zhKeyTakeaway": "《2026年全球气候状况报告》显示，在 16 项地球生命体征中已有 7 项创下历史极端纪录。大气二氧化碳浓度突破 428 ppm，全球变暖速率自 2015 年以来几乎翻倍（达每十年 0.36°C），大西洋经向翻转环流（AMOC）与亚马逊雨林等关键气候临界点正面临不可逆的失稳风险。",
+    "paragraphs": [
+      {
+        "enHeading": "1. Seven of 16 Planetary Vital Signs Hit Record Extremes",
+        "zhHeading": "一、地球 16 项核心生命体征中 7 项创下历史极端纪录",
+        "enText": "Seven of 16 {{planetary vital signs||/ˈplænɪtəri ˈvaɪtl saɪnz/||地球生命体征（衡量地球生态健康的16项核心指标）||Seven of 16 planetary vital signs tracked by climate scientists have reached record extremes...||Monitoring planetary vital signs reveals that human industrial activity has pushed the biosphere into uncharted territory.||对地球生命体征的监测表明，人类工业活动已将生物圈推入未知的危险境地。}} tracked by climate scientists have reached record extremes, according to the 2026 State of the Climate report published today in BioScience. The annual assessment warns that Earth's climate system is {{entering a perilous new phase||/ˈɛntərɪŋ ə ˈpɛrələs njuː feɪz/||进入一个危机四伏的新阶段||The annual assessment warns that Earth's climate system is entering a perilous new phase...||With geopolitical treaties unravelling, global nuclear non-proliferation is entering a perilous new phase.||随着地缘政治条约的瓦解，全球核不扩散机制正进入一个危机四伏的新阶段。}}, driven by continued fossil fuel combustion and accelerating feedbacks.",
+        "zhText": "根据今日发表在《生物科学》（BioScience）期刊上的《2026年气候状况报告》，气候科学家追踪的 16 项“地球生命体征”中，已有 7 项达到有史以来的极端纪录。这份年度评估警告称，受持续的化石燃料燃烧和加速的正反馈循环驱动，地球气候系统正步入一个危机四伏的新阶段。"
+      },
+      {
+        "enHeading": "2. The Planet Is Reaching Its Ecological Limits",
+        "zhHeading": "二、生态承载力逼近极限：每拖延一年，代价呈指数级上升",
+        "enText": "“The planet is reaching its limits,” said William Ripple, a professor of ecology at Oregon State University and lead author of the report. “Every year we delay meaningful action, the risks of {{catastrophic and irreversible changes||/ˌkætəˈstrɒfɪk ænd ˌɪrɪˈvɜːsəbl ˈtʃeɪndʒɪz/||灾难性且不可逆转的剧变||Every year we delay meaningful action, the risks of catastrophic and irreversible changes grow.||Crossing ecological thresholds can trigger catastrophic and irreversible changes in marine food webs.||跨越生态阈值可能会在海洋食物网中引发灾难性且不可逆转的剧变。}} grow.”",
+        "zhText": "报告第一作者、俄勒冈州立大学生态学教授 William Ripple 表示：“地球正在逼近它的极限。我们每推迟一年采取实质性行动，发生灾难性且不可逆转变化的风险就会随之倍增。”"
+      },
+      {
+        "enHeading": "3. Atmospheric CO2 Breaches 428 Parts Per Million",
+        "zhHeading": "三、大气二氧化碳突破 428 ppm，创两百万年来最高峰值",
+        "enText": "Among the vital signs hitting record highs are atmospheric carbon dioxide concentrations, which breached 428 parts per million (ppm) earlier this year—the highest level in at least 2 million years. Methane and nitrous oxide concentrations also reached {{all-time highs||/ɔːl-taɪm haɪz/||历史最高水平；空前峰值||Methane and nitrous oxide concentrations also reached all-time highs...||Global sovereign debt levels have surged to all-time highs following years of fiscal stimulus.||在经历了多年的财政刺激后，全球主权债务水平已飙升至历史最高点。}}, alongside ocean heat content, global sea level rise, and ice mass loss in both Greenland and Antarctica.",
+        "zhText": "创下历史新高的生命体征包括大气二氧化碳浓度，今年早些时候已突破百万分之 428（428 ppm）——这是至少 200 万年以来的最高水平。甲烷和氧化亚氮浓度也达到了历史最高点，同时创纪录的还有海洋热含量、全球海平面上升幅度，以及格陵兰岛和南极洲的冰盖质量流失。"
+      },
+      {
+        "enHeading": "4. Worldwide Glacier Thickness Hits Record Low",
+        "zhHeading": "四、全球冰川厚度跌至历史最低谷，2025—2026双最热年份确认",
+        "enText": "Worldwide glacier thickness fell to a record low, continuing {{a decades-long retreat||/ə ˈdɛkeɪdz-lɒŋ rɪˈtriːt/||持续数十年的衰退/消退||Worldwide glacier thickness fell to a record low, continuing a decades-long retreat.||Alpine snowpack has been undergoing a decades-long retreat, threatening downstream hydroelectric reservoirs.||高山积雪正在经历长达数十年的消退，威胁着下游的水力发电水库。}}. Meanwhile, 2025 was confirmed as the second-warmest year on record, trailing only 2026, which is currently on track to be the hottest year ever measured.",
+        "zhText": "全球冰川厚度跌至历史最低纪录，延续了长达数十年的消退趋势。与此同时，2025 年被确认为有记录以来第二热的年份，仅次于 2026 年——而目前 2026 年正走向有观测史以来最酷热的一年。"
+      },
+      {
+        "enHeading": "5. Alarming Acceleration: Warming Rate Nearly Doubles",
+        "zhHeading": "五、惊人的加速：全球变暖速率十年间几乎翻倍",
+        "enText": "The report highlights a troubling trend: the rate of global warming has nearly doubled since 2015. Between 1970 and 2015, global surface temperatures rose at a relatively steady pace of about 0.19°C per decade. Over the past 10 years, however, that rate has surged to roughly 0.36°C per decade.",
+        "zhText": "报告重点揭示了一个令人不安的趋势：自 2015 年以来，全球变暖的速率几乎翻了一番。在 1970 年至 2015 年间，全球地表温度以每十年约 0.19°C 的相对稳定速度上升；然而在过去 10 年里，这一升温速率已飙升至每十年约 0.36°C。"
+      },
+      {
+        "enHeading": "6. Aerosols and Darkening Planetary Albedo",
+        "zhHeading": "六、气溶胶减少与地球反照率下降的叠加效应",
+        "enText": "Scientists attribute this acceleration to a combination of persistently high greenhouse gas emissions and a reduction in cooling aerosol pollution—particularly from cleaner shipping fuels—which has {{unmasked additional warming||/ʌnˈmɑːskt əˈdɪʃənl ˈwɔːmɪŋ/||揭开了此前被掩盖的额外变暖效应||...a reduction in cooling aerosol pollution—particularly from cleaner shipping fuels—which has unmasked additional warming.||Removing industrial sulfate aerosols has inadvertently unmasked additional warming across the Northern Hemisphere.||清除工业硫酸盐气溶胶在无意间暴露了北半球此前被遮蔽的额外变暖效应。}}. Changes in cloud cover and diminishing sea ice have also lowered Earth's albedo, causing the planet to absorb more solar radiation.",
+        "zhText": "科学家将这种加速归因于持续高企的温室气体排放与具有冷却效应的气溶胶污染减少（尤其是航运业改用更清洁燃料后）的叠加作用——气溶胶的减少揭开了此前被掩盖的额外升温。此外，云层覆盖的变化和海冰的萎缩也降低了地球的反照率，导致地球吸收了更多的太阳辐射。"
+      },
+      {
+        "enHeading": "7. Four Climate Tipping Elements on the Brink",
+        "zhHeading": "七、四大气候临界系统濒临崩溃边缘",
+        "enText": "This rapid warming is pushing several critical Earth systems closer to {{tipping points||/ˈtɪpɪŋ pɔɪnts/||临界点；引爆点（一旦跨越即发生不可逆质变的阈值）||This rapid warming is pushing several critical Earth systems closer to tipping points.||Ecological systems rarely degrade linearly; instead, they absorb stress until they abruptly cross tipping points.||生态系统很少呈线性退化；相反，它们会不断吸收压力，直到突然跨越不可逆的临界点。}}. The authors point to four tipping elements of particular concern: the Greenland and West Antarctic ice sheets, the Atlantic Meridional Overturning Circulation (AMOC), and the Amazon rainforest.",
+        "zhText": "这种快速的变暖正将几个关键的地球系统推向临界点（Tipping Points）。作者指出了四个尤为令人担忧的临界要素：格陵兰冰盖、西南极洲冰盖、大西洋经向翻转环流（AMOC）以及亚马逊雨林。"
+      },
+      {
+        "enHeading": "8.Cascading Effects Across the Global Climate System",
+        "zhHeading": "八、多米诺骨牌式的级联效应（Cascading Effects）",
+        "enText": "“We are seeing increasing evidence that these systems are losing stability,” said co-author Nico Wunderling, a scientist at the Potsdam Institute for Climate Impact Research. “The destabilization of one system, such as the AMOC, could {{trigger cascading effects||/ˈtrɪɡə kæˈskeɪdɪŋ ɪˈfɛkts/||引发多米诺骨牌式的级联/连锁反应||The destabilization of one system, such as the AMOC, could trigger cascading effects that alter monsoon patterns and accelerate dieback in the Amazon.||A failure in a single clearinghouse can trigger cascading effects across interconnected global banking networks.||单一清算机构的违约可能会在互联的全球银行网络中引发级联反应。}} that alter monsoon patterns and accelerate dieback in the Amazon.”",
+        "zhText": "报告合著者、波茨坦气候影响研究所科学家 Nico Wunderling 表示：“我们看到越来越多的证据表明这些系统正在丧失稳定性。其中一个系统（如大西洋经向翻转环流 AMOC）的失稳，可能会引发多米诺骨牌式的级联效应，从而改变全球季风模式并加速亚马逊雨林的枯死退化。”"
+      },
+      {
+        "enHeading": "9. A Rare Bright Spot: Renewables Overtake Coal",
+        "zhHeading": "九、罕见的亮点：风能与太阳能发电量历史性超越燃煤",
+        "enText": "Despite the grim findings, the report notes a few positive developments in the global energy transition. Wind and solar power generation grew by a record 18% in 2025, surpassing coal-fired electricity generation globally for the first time.",
+        "zhText": "尽管整体结论严峻，但报告也记录了全球能源转型中的几个积极进展。2025 年，全球风能和太阳能发电量创纪录地增长了 18%，历史上首次在全球范围内超越了燃煤发电量。"
+      },
+      {
+        "enHeading": "10. Energy Addition Rather Than Energy Replacement",
+        "zhHeading": "十、“能源叠加”而非“能源替代”：化石燃料补贴依然高企",
+        "enText": "However, surging global energy demand—driven in part by industrial growth and the rapid expansion of {{power-hungry artificial intelligence data centers||/ˈpaʊə-ˈhʌŋɡri ˌɑːtɪˈfɪʃəl ɪnˈtɛlɪdʒəns ˈdeɪtə ˈsɛntəz/||极度耗电的人工智能数据中心||...surging global energy demand—driven in part by industrial growth and the rapid expansion of power-hungry artificial intelligence data centers...||Tech giants are signing nuclear power purchase agreements to feed their power-hungry artificial intelligence data centers.||科技巨头纷纷签署核电采购协议，以喂饱其极度耗电的人工智能数据中心。}}—meant that fossil fuel consumption also rose slightly. Global fossil fuel subsidies remained above $1 trillion in 2025, undermining efforts to phase out coal, oil, and gas.",
+        "zhText": "然而，飙升的全球能源需求——部分受工业增长以及极度耗电的人工智能数据中心激增所驱动——意味着化石燃料消耗量也出现了小幅上升。2025 年全球化石燃料补贴依然维持在 1 万亿美元以上，严重削弱了淘汰煤炭、石油和天然气的努力。"
+      },
+      {
+        "enHeading": "11. The Imperative of Phasing Out Fossil Fuels & Carbon Removal",
+        "zhHeading": "十一、结语：可再生能源必须真正取代化石能源",
+        "enText": "“Renewable energy is booming, which is encouraging, but it is currently adding to total energy supply rather than replacing fossil fuels fast enough,” Ripple said. The authors call for an immediate halt to new fossil fuel infrastructure, a global price on carbon, and massive investments in nature restoration and carbon dioxide removal technologies to bring the planet back within a safe operating space.",
+        "zhText": "Ripple 指出：“可再生能源正在蓬勃发展，这令人鼓舞，但它目前只是在增加总能源供应，而未能以足够快的速度取代化石燃料。”报告作者呼吁立即停止新建化石燃料基础设施、制定全球统一的碳定价机制，并对自然生态修复和二氧化碳移除技术进行大规模投资，以将地球重新拉回安全的生态运行空间。"
+      }
+    ],
+    "speaking": {
+      "question": "Even though wind and solar power are growing at record speeds, why have global greenhouse gas emissions failed to drop rapidly?",
+      "modelAnswer": "The core bottleneck is that clean energy is currently supplementing rather than displacing fossil fuels. Surging electricity appetite—driven by industrial expansion and power-hungry artificial intelligence data centers—has absorbed much of the new renewable capacity. Meanwhile, planetary vital signs are entering a perilous new phase, and crossing climate tipping points could trigger cascading effects before market forces alone phase out hydrocarbons.",
+      "targetPhrases": [
+        "planetary vital signs",
+        "entering a perilous new phase",
+        "tipping points",
+        "trigger cascading effects",
+        "power-hungry artificial intelligence data centers"
+      ]
+    }
+  },
+  {
+    "id": "cognitive-ordinary-people-waste-lives",
+    "badge": "FARNAM STREET · BEHAVIORAL ESSAY · COMPLETE 10-PARAGRAPH EDITION",
+    "author": "Curated Cognitive Essay (From User's Screenshot Collection)",
+    "sourceUrl": "https://fs.blog/",
+    "enTitle": "How Ordinary People Waste Their Lives",
+    "zhTitle": "普通人是如何一步步浪费一生的",
+    "themeColor": "#E11D48",
+    "imageUrl": "svg-crimson-editorial",
+    "imageCaption": "Most people do not waste their lives because they never work hard. They waste them waiting, hesitating, and avoiding what matters. Illustration: Editorial Red Series (1/13)",
+    "enKeyTakeaway": "Most people do not waste their lives because they never work hard. They waste them waiting, hesitating, and avoiding what matters. Stop waiting for life to improve on its own. Start doing what matters, one step at a time.",
+    "zhKeyTakeaway": "普通人浪费一生，往往不是因为不够努力，而是因为把时间花在等待、犹豫和逃避上。别再等生活自动变好，从今天开始，把真正重要的事情一件件做好。",
+    "paragraphs": [
+      {
+        "enHeading": "Introduction: Quiet Erosion Over Years",
+        "zhHeading": "引言：在日复一日的推迟中悄然消磨的一生",
+        "enText": "Most people do not waste their lives in {{one dramatic moment||/wʌn drəˈmætɪk ˈməʊmənt/||某个充满戏剧性的重大时刻||Most people do not waste their lives in one dramatic moment.||Financial ruin rarely happens in one dramatic moment; it accumulates through years of unexamined habits.||财务崩溃很少发生在某个戏剧性的瞬间，而是多年未经审视的习惯累积的结果。}}. They waste them quietly, through years of {{postponing what matters||/pəʊˈspəʊnɪŋ wɒt ˈmætəz/||无限期推迟真正重要的事情||They waste them quietly, through years of postponing what matters, worrying about things that do not, and waiting for a better time to begin.||Chronic perfectionism is often just a socially acceptable excuse for postponing what matters.||慢性完美主义往往只是无限期推迟真正重要之事的体面借口。}}, worrying about things that do not, and waiting for a better time to begin. They tell themselves they will change when they have more money, more confidence, or fewer responsibilities. Then one ordinary day follows another, until the life they once imagined becomes {{a distant possibility||/ə ˈdɪstənt ˌpɒsəˈbɪləti/||一个越来越遥远、不敢再去想的可能||...until the life they once imagined becomes a distant possibility they rarely think about anymore.||Without daily deliberate execution, intellectual ambition quickly fades into a distant possibility.||若无每日的刻意执行，知识变现的雄心很快就会褪色为遥不可及的幻想。}} they rarely think about anymore.",
+        "zhText": "大多数人并不是在某个重大时刻浪费了一生，而是在日复一日中，慢慢推迟真正重要的事情，把时间花在无关紧要的焦虑里，一直等待一个更好的开始。他们告诉自己，等有了钱、变得自信，或者等生活轻松一些，就会改变。可一天接着一天，曾经向往的人生，最终变成了一个越来越不敢想起的可能。"
+      },
+      {
+        "enHeading": "1. They Spend Their Lives Waiting to Feel Ready (Part I)",
+        "zhHeading": "一、他们一生都在等待自己准备好（上）",
+        "enText": "One of the most common ways people waste their lives is by {{waiting until they feel ready||/ˈweɪtɪŋ ənˈtɪl ðeɪ fiːl ˈrɛdi/||一直等到自己觉得“万事俱备”才肯开始||One of the most common ways people waste their lives is by waiting until they feel ready to live them.||Waiting until you feel ready is a cognitive trap because competence is forged through action, not contemplation.||“等到觉得准备好了再开始”是一个认知陷阱，因为能力是在行动中锻造的，而非靠空想得来。}} to live them. They want to start a business when they have enough savings, change careers when they have more experience, travel when work becomes less demanding, and pursue their interests when they finally have some free time. Every decision seems reasonable on its own. The problem is that there is always another condition to satisfy. By the time one obstacle disappears, another has taken its place.",
+        "zhText": "普通人最容易浪费一生的方式之一，就是一直等到自己准备好了，才肯真正开始生活。他们想等存够钱再创业，等经验丰富了再换工作，等工作不那么忙了再去旅行，等终于有了空闲，再去做自己喜欢的事。单看每一个理由，都很合理。问题在于，总有下一个条件需要满足。一个障碍刚刚消失，另一个又出现了。"
+      },
+      {
+        "enHeading": "2. Confidence Grows Out of Action, Not Before It (Part II)",
+        "zhHeading": "二、自信从来不是在行动前就完整到来的（下）",
+        "enText": "The truth is that confidence rarely arrives before action. More often, it grows out of doing something unfamiliar, making mistakes, and discovering that you can {{survive the discomfort||/səˈvaɪv ðə dɪsˈkʌmfət/||承受并熬过最初的不适感||More often, it grows out of doing something unfamiliar, making mistakes, and discovering that you can survive the discomfort.||Language fluency accelerates the moment a learner realizes they can survive the discomfort of imperfect conversation.||当学习者意识到自己能够坦然承受不完美对话带来的不适感时，语言流利度就会迎来跃升。}}. You do not need to feel completely prepared before taking the first step. You need to be willing to begin while some uncertainty remains. Otherwise, you can {{spend years preparing for a life you never actually enter||/spɛnd jɪəz prɪˈpɛərɪŋ fɔːr ə laɪf juː ˈnɛvər ˈæktʃuəli ˈɛntə/||花上很多年去准备一种自己从未真正走进过的生活||Otherwise, you can spend years preparing for a life you never actually enter.||Collectors of courses often spend years preparing for a life they never actually enter.||囤课成瘾的人往往花上好几年去准备一种他们从未真正踏入过的生活。}}.",
+        "zhText": "事实上，自信很少在行动之前就完整地到来。更多时候，它是在尝试陌生的事情、经历错误，并发现自己能够承受不适之后，慢慢建立起来的。你不必等到万事俱备才迈出第一步，只需要愿意在仍有不确定性的情况下开始。否则，你可能花上很多年准备一种生活，却始终没有真正走进去。"
+      },
+      {
+        "enHeading": "3. They Confuse Being Busy With Moving Forward (Part I)",
+        "zhHeading": "三、他们把忙碌误认为进步（上）",
+        "enText": "Some people are genuinely busy every day. They wake up early, answer messages, deal with endless tasks, worry about deadlines, and collapse into bed at night feeling that they have worked incredibly hard. Yet when they look back after several years, they find that very little has fundamentally changed. Their income has barely improved, their abilities have not developed much, and the goals they once cared about {{remain untouched||/rɪˈmeɪn ʌnˈtʌtʃt/||依然停留在原地、分毫未动||...and the goals they once cared about remain untouched.||When urgent trivia hijacks your schedule, your most meaningful creative projects remain untouched.||当紧急的琐事劫持了你的日程表，你最具价值的创造性项目便会一直停留在原地。}}.",
+        "zhText": "有些人每天确实忙得不可开交。他们早起、回复消息、处理没完没了的任务、担心截止日期，晚上累得倒头就睡，觉得自己已经拼尽全力。可几年之后回头看，他们却发现，生活并没有发生多少实质性的变化：收入没有明显提高，能力没有显著增长，曾经在意目标依然停留在原地。"
+      },
+      {
+        "enHeading": "4. Effort Without Direction Is Just Exhausting Motion (Part II)",
+        "zhHeading": "四、缺乏方向的努力只是令人筋疲力尽的原地打转（下）",
+        "enText": "That happens because {{confusing being busy with moving forward||/kənˈfjuːzɪŋ ˈbiːɪŋ ˈbɪzi wɪð ˈmuːvɪŋ ˈfɔːwəd/||将机械的忙碌误以为是实质性的前进||That happens because confusing being busy with moving forward is one of the easiest traps in adult life.||Many corporate teams fall into the trap of confusing being busy with moving forward, mistaking endless meetings for strategic execution.||许多企业团队掉入了“把忙碌当成前进”的陷阱，将没完没了的会议误认为战略落地。}} is one of the easiest traps in adult life. Responding to whatever is urgent feels productive in the moment, but it mostly serves other people's priorities. True progress requires carving out uninterrupted hours for {{high-leverage work||/haɪ-ˈlɛvərɪdʒ wɜːk/||高杠杆率的核心工作（能产生长期复利的事）||True progress requires carving out uninterrupted hours for high-leverage work—the kind that builds compounding skills or assets.||Naval Ravikant emphasizes that wealth is created through high-leverage work rather than renting out raw hours.||纳瓦尔强调，财富是通过高杠杆工作创造的，而非单纯出租廉价的时间。}}—the kind that builds compounding skills or assets, even when nobody is demanding it from you today.",
+        "zhText": "之所以会这样，是因为把忙碌当成前进，是成年人最容易掉进的陷阱之一。即时响应眼前紧急的事务在当下会让人产生一种“我很高效”的错觉，但这往往只是在满足别人的优先级。真正的进步，需要你切出不受打扰的整块时间，投入到那些高杠杆的工作中——即便今天没人催促你，它却能为你积累长期复利的技能或资产。"
+      },
+      {
+        "enHeading": "5. They Let Fear of Judgment Dictate Their Choices",
+        "zhHeading": "五、他们让“害怕别人眼光”主导了自己的人生选择",
+        "enText": "Many people quietly abandon ambitions not because they lack talent, but because they cannot bear the embarrassment of being seen as a beginner. They stay within familiar roles where their competence is guaranteed, {{letting fear of judgment dictate their choices||/ˈlɛtɪŋ fɪər ɒv ˈdʒʌdʒmənt dɪkˈteɪt ðɛə ˈtʃɔɪsɪz/||让对他人评判的恐惧支配自己的选择||They stay within familiar roles where their competence is guaranteed, letting fear of judgment dictate their choices.||When young professionals let fear of judgment dictate their choices, they trade authentic growth for fragile approval.||当年轻职场人让对他人评判的恐惧支配自己的选择时，他们便用真实的成长换取了脆弱的认可。}}. Yet the people whose opinions you fear are almost entirely absorbed in their own lives; they rarely think about your failures for more than five minutes.",
+        "zhText": "许多人悄然放弃自己的抱负，并不是因为缺乏才华，而是因为无法忍受被人看到自己作为“新手”时的笨拙与尴尬。他们退缩在自己驾轻就熟的舒适角色里以确保万无一失，任由对他人评判的恐惧主导自己的选择。然而，那些你所畏惧的看客，其实几乎完全沉浸在他们自己的生活里；他们对你成败的关注，往往连五分钟都不到。"
+      },
+      {
+        "enHeading": "6. They Trade Long-Term Meaning for Short-Term Comfort",
+        "zhHeading": "六、他们用长期的人生意义换取了眼前的廉价安逸",
+        "enText": "Every evening presents a quiet fork in the road: you can numb your fatigue with passive entertainment, or you can invest two focused hours into building something of your own. Neither choice feels dramatic on a Tuesday night. But over five years, {{trading long-term meaning for short-term comfort||/ˈtreɪdɪŋ lɒŋ-tɜːm ˈmiːnɪŋ fɔː ʃɔːt-tɜːm ˈkʌmfət/||为贪图短期安逸而牺牲长期的人生意义||But over five years, trading long-term meaning for short-term comfort compounds into deep regret.||Consumer culture constantly tempts individuals into trading long-term meaning for short-term comfort.||消费主义文化不断诱惑人们为了短期的感官安逸而牺牲长期的人生价值。}} compounds into deep regret. Stop waiting for life to improve on its own. Start doing what matters, one deliberate step at a time.",
+        "zhText": "每个夜晚都摆着一个无声的分岔路口：你可以用被动的娱乐来麻痹疲惫，也可以投入两个专注的小时去构建真正属于你自己的作品。在某一个普通的周二夜晚，这两种选择看起来都无关痛痒。但五年下来，用长期意义换取短期安逸的做法，就会复利累积成深深的遗憾。别再等生活自动变好，从今天开始，把真正重要的事情一步一个脚印地做好。"
+      }
+    ],
+    "speaking": {
+      "question": "Why do so many hardworking adults feel exhausted every day yet feel that their lives have not meaningfully progressed over the past five years?",
+      "modelAnswer": "The root cause is that modern professionals chronically confuse being busy with moving forward. By filling every waking hour with reactive tasks, they procrastinate on high-leverage goals while postponing what matters. Furthermore, many spend years waiting until they feel ready or letting fear of judgment dictate their choices. True transformation requires willingness to survive the discomfort of being a beginner.",
+      "targetPhrases": [
+        "postponing what matters",
+        "waiting until they feel ready",
+        "survive the discomfort",
+        "confusing being busy with moving forward",
+        "letting fear of judgment dictate their choices",
+        "trading long-term meaning for short-term comfort"
+      ]
+    }
+  }
+]

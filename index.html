@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veritas Reader | C1/C2 外刊精读与雅思高阶口语交互工作台</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        paper: '#FAF8F5',
+                        'paper-card': '#FFFFFF',
+                        obsidian: '#1C1917',
+                        'obsidian-muted': '#57534E',
+                        'editorial-red': '#E11D48',
+                        'editorial-terracotta': '#C2410C',
+                        'editorial-gold': '#D97706',
+                        'editorial-border': '#E7E5E4'
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'Noto Serif SC', 'Georgia', 'serif'],
+                        display: ['Cinzel', 'Noto Serif SC', 'serif'],
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        cnsans: ['Noto Serif SC', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth transitions & custom scrollbars */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f0ee; }
+        ::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
+
+        /* Highlighted Word Anchor in Text */
+        .colloc-tag {
+            background: linear-gradient(120deg, rgba(254, 215, 170, 0.45) 0%, rgba(254, 215, 170, 0.85) 100%);
+            border-bottom: 2px solid #ea580c;
+            padding: 1px 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            color: #1c1917;
+            display: inline-block;
+        }
+        .colloc-tag:hover {
+            background: #fed7aa;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(234, 88, 12, 0.2);
+        }
+
+        /* Editorial Drop Cap */
+        .dropcap::first-letter {
+            float: left;
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            line-height: 0.8;
+            padding-top: 4px;
+            padding-right: 10px;
+            padding-bottom: 2px;
+            color: #c2410c;
+            font-weight: 700;
+        }
+
+        /* Reading Column Grid */
+        .bilingual-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        @media (min-width: 768px) {
+            .bilingual-row.side-by-side {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        /* Blur/Reveal Animation for Chinese */
+        .zh-hidden {
+            filter: blur(5px);
+            opacity: 0.35;
+            user-select: none;
+            cursor: pointer;
+            transition: all 0.35s ease;
+        }
+        .zh-hidden:hover {
+            filter: blur(2px);
+            opacity: 0.7;
+        }
+        .zh-revealed {
+            filter: none !important;
+            opacity: 1 !important;
+            user-select: auto;
+        }
+
+        /* Drawer Overlay */
+        .dock-drawer {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+        }
+        .dock-drawer.closed {
+            transform: translateX(105%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* ==========================================================
+           STRICT ANTI-VERTICAL-WRAP & UNIFORM BUTTON SIZING FIXES
+           ========================================================== */
+        button, a.ui-btn, select, .ui-pill, .mob-mode-btn {
+            white-space: nowrap !important;
+            flex-shrink: 0 !important;
+            word-break: keep-all !important;
+            line-height: 1.2 !important;
+        }
+        .ui-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            height: 36px !important;
+            padding: 0 14px !important;
+            border-radius: 8px !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            gap: 6px !important;
+            white-space: nowrap !important;
+            flex-shrink: 0 !important;
+            transition: all 0.18s ease !important;
+            cursor: pointer;
+        }
+        .ui-btn-sm {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            height: 30px !important;
+            padding: 0 12px !important;
+            border-radius: 6px !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            gap: 5px !important;
+            white-space: nowrap !important;
+            flex-shrink: 0 !important;
+            cursor: pointer;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Consumer Export Mode: automatically hides seller-only buttons */
+        body.consumer-edition .seller-admin-only {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="bg-paper text-obsidian font-sans antialiased selection:bg-orange-100 selection:text-orange-900 min-h-screen flex flex-col justify-between">
+
+    <!-- Top Sticky Header & Control Bar -->
+    <header class="sticky top-0 z-40 bg-paper/95 backdrop-blur-md border-b border-editorial-border shadow-xs">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3">
+            <!-- Brand / Logo -->
+            <div class="flex items-center gap-3 shrink-0">
+                <div class="w-9 h-9 rounded-lg bg-obsidian flex items-center justify-center text-white font-display font-bold text-lg shadow-sm shrink-0">
+                    V
+                </div>
+                <div class="shrink-0">
+                    <h1 class="text-base sm:text-lg font-bold tracking-tight font-serif flex items-center gap-2 whitespace-nowrap">
+                        <span>Veritas Reader</span>
+                        <span class="ui-pill text-[11px] font-sans font-semibold px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-200">C1/C2 精读工作室</span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Controls & Mode Selector (Never wraps text vertically, scrolls or wraps cleanly) -->
+            <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5 max-w-full">
+                <!-- Issue Dropdown -->
+                <div class="relative shrink-0">
+                    <select id="issueSelect" onchange="loadSelectedIssue(this.value)" class="h-9 text-xs bg-white border border-editorial-border rounded-lg px-3 pr-7 font-semibold text-obsidian shadow-2xs hover:border-stone-400 focus:outline-hidden cursor-pointer max-w-[210px] sm:max-w-[260px] truncate">
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+
+                <!-- Reading Mode Segmented Toggle -->
+                <div class="hidden md:inline-flex items-center h-9 bg-stone-200/75 p-1 rounded-lg border border-editorial-border text-xs font-semibold text-stone-600 shrink-0">
+                    <button onclick="setMode('side-by-side')" id="btnModeSide" class="h-7 px-3 rounded-md transition-all bg-white text-obsidian font-semibold shadow-2xs whitespace-nowrap">左右对照</button>
+                    <button onclick="setMode('en-only')" id="btnModeEn" class="h-7 px-3 rounded-md transition-all hover:text-obsidian whitespace-nowrap">纯英浸泡</button>
+                    <button onclick="setMode('tap-reveal')" id="btnModeReveal" class="h-7 px-3 rounded-md transition-all hover:text-obsidian whitespace-nowrap">点击显中文</button>
+                </div>
+
+                <!-- Font Resizer -->
+                <div class="inline-flex items-center h-9 bg-white border border-editorial-border rounded-lg text-xs font-bold overflow-hidden shrink-0 shadow-2xs">
+                    <button onclick="changeFontSize(-1)" class="h-full px-3 hover:bg-stone-100 border-r border-editorial-border text-stone-700" title="减小字体">A-</button>
+                    <button onclick="changeFontSize(1)" class="h-full px-3 hover:bg-stone-100 text-stone-700" title="增大字体">A+</button>
+                </div>
+
+                <!-- Vault Drawer Toggle Button -->
+                <button onclick="openVaultModal()" class="ui-btn bg-white border border-editorial-border hover:bg-stone-50 text-stone-800 shadow-2xs">
+                    <svg class="w-4 h-4 text-orange-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    <span>生词本</span>
+                    <span id="vaultBadge" class="px-1.5 py-0.5 rounded-full bg-orange-600 text-white text-[10px] font-bold leading-none">0</span>
+                </button>
+
+                <!-- Import Issue Button (Seller Admin Only) -->
+                <button onclick="openImportModal()" class="seller-admin-only ui-btn bg-obsidian hover:bg-stone-800 text-white shadow-2xs">
+                    <span>+ 新期刊</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Mode Strip -->
+        <div class="md:hidden flex border-t border-editorial-border bg-stone-100/80 px-4 py-2 justify-center gap-3 text-xs font-semibold text-stone-600 overflow-x-auto no-scrollbar">
+            <button onclick="setMode('side-by-side')" class="mob-mode-btn px-3 py-1 rounded-md bg-white text-orange-600 font-bold shadow-2xs" data-mode="side-by-side">左右对照</button>
+            <button onclick="setMode('en-only')" class="mob-mode-btn px-3 py-1 rounded-md" data-mode="en-only">纯英浸泡</button>
+            <button onclick="setMode('tap-reveal')" class="mob-mode-btn px-3 py-1 rounded-md" data-mode="tap-reveal">点击显中文</button>
+        </div>
+    </header>
+
+    <!-- Main Editorial Article Container -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 flex-1 w-full">
+        
+        <!-- Quick Issue Switcher Pills (5 Unabridged Authentic Issues) -->
+        <div id="issueQuickPills" class="flex items-center gap-2.5 overflow-x-auto pb-3 mb-4 no-scrollbar">
+            <!-- Populated by JS -->
+        </div>
+
+        <!-- Cover Visual & Editorial Title Block -->
+        <article class="bg-paper-card border border-editorial-border rounded-2xl shadow-xs overflow-hidden mb-12">
+            
+            <!-- Issue Banner Art (Real Editorial Photo + High-Art SVG Illustration + Caption Bar) -->
+            <div id="coverContainer" class="w-full bg-stone-900 relative overflow-hidden transition-colors duration-500">
+                <!-- Top Metadata Bar inside Cover -->
+                <div class="absolute top-3.5 left-4 right-4 z-20 flex flex-wrap items-center justify-between gap-2 pointer-events-auto">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span id="issueDateBadge" class="ui-pill bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-full text-white text-[11px] font-semibold tracking-wider uppercase border border-white/15">
+                            THE GUARDIAN · 20 OCT 2026
+                        </span>
+                        <a id="issueSourceLink" href="https://www.theguardian.com" target="_blank" rel="noopener noreferrer" class="ui-btn-sm bg-white/95 hover:bg-white text-obsidian rounded-full! px-3! shadow-sm transition-all">
+                            <span>访问外刊原网页</span>
+                            <svg class="w-3.5 h-3.5 text-orange-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="promptCustomImage()" class="seller-admin-only ui-btn-sm bg-black/65 hover:bg-black/85 text-white/95 backdrop-blur-md border border-white/20 transition-colors">
+                            <span>🖼️ 更换配图 URL</span>
+                        </button>
+                        <span id="paragraphCountBadge" class="ui-pill bg-orange-600/95 text-white text-[11px] font-mono font-bold px-3 py-1.5 rounded-md backdrop-blur-md shadow-xs">
+                            全文 11 段 · 零删减
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Dynamic Editorial Visual Stage -->
+                <div id="coverVisualStage" class="w-full h-64 sm:h-80 md:h-96 relative flex items-center justify-center overflow-hidden bg-stone-900">
+                    <!-- Populated dynamically with authentic editorial image or bespoke illustration -->
+                </div>
+
+                <!-- Authentic Photo Caption Bar -->
+                <div class="bg-stone-950/90 text-stone-300 px-6 py-2.5 text-xs font-serif italic border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+                    <span id="issueImageCaption">Illustration: Guardian Design / Westend61</span>
+                    <span id="issueAuthorBadge" class="font-sans not-italic text-[11px] text-orange-300 font-medium">By Madhu Shashanka</span>
+                </div>
+            </div>
+
+            <!-- Title & Subtitle Section -->
+            <div class="p-6 sm:p-10 border-b border-editorial-border">
+                <div class="max-w-3xl mx-auto text-center">
+                    <div class="inline-block text-stone-500 font-serif italic text-base sm:text-lg mb-2" id="articleEnglishTitle">
+                        How Ordinary People Waste Their Lives
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black font-cnsans tracking-tight text-obsidian mb-6 leading-tight" id="articleChineseTitle">
+                        普通人是如何一步步浪费一生的
+                    </h2>
+                    
+                    <!-- Core Summary Quote Box -->
+                    <div class="bg-stone-50 border-l-4 border-orange-500 p-4 sm:p-5 text-left rounded-r-xl space-y-2">
+                        <div class="flex items-start gap-2">
+                            <span class="text-orange-600 font-bold">•</span>
+                            <p class="text-xs sm:text-sm font-serif text-stone-800 leading-relaxed" id="articleEnKeyTakeaway">
+                                Most people do not waste their lives because they never work hard. They waste them waiting, hesitating, and avoiding what matters. Stop waiting for life to improve on its own. Start doing what matters, one step at a time.
+                            </p>
+                        </div>
+                        <div class="flex items-start gap-2 pt-1 border-t border-stone-200/60">
+                            <span class="text-orange-600 font-bold">•</span>
+                            <p class="text-xs sm:text-sm font-cnsans text-stone-600 leading-relaxed" id="articleZhKeyTakeaway">
+                                普通人浪费一生，往往不是因为不够努力，而是因为把时间花在等待、犹豫和逃避上。别再等生活自动变好，从今天开始，把真正重要的事情一件件做好。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reading Section Notice / Audio Player Bar -->
+            <div class="bg-stone-50/90 px-6 py-3.5 border-b border-editorial-border flex flex-wrap items-center justify-between text-xs text-stone-600 gap-3">
+                <div class="flex items-center gap-2">
+                    <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+                    <span>双语精读已激活 · 点击文中 <span class="bg-orange-200 text-orange-950 font-bold px-1.5 py-0.5 rounded text-[11px]">高亮词伙</span> 唤出深度解析抽屉</span>
+                </div>
+                <div class="flex items-center gap-2 flex-wrap">
+                    <button onclick="readAloudEntireArticle()" class="ui-btn-sm bg-white hover:bg-stone-100 text-stone-800 border border-editorial-border shadow-2xs transition-colors">
+                        <svg class="w-3.5 h-3.5 text-orange-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path></svg>
+                        <span>全文原声朗读 (TTS)</span>
+                    </button>
+                    <button onclick="stopTTS()" class="ui-btn-sm bg-white hover:bg-red-50 text-stone-600 hover:text-red-600 border border-editorial-border shadow-2xs transition-colors" title="停止朗读">
+                        <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        <span>停止</span>
+                    </button>
+                    <button onclick="window.print()" class="ui-btn-sm bg-white hover:bg-stone-100 text-stone-700 border border-editorial-border shadow-2xs transition-colors">
+                        <span>🖨️ 打印 / PDF</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bilingual Reading Body -->
+            <div class="p-6 sm:p-10 md:p-12 space-y-10" id="readingContainer">
+                <!-- Dynamically rendered paragraphs with side-by-side or chosen mode -->
+            </div>
+
+        </article>
+
+        <!-- IELTS 8.5 Socratic Speaking & Polish Simulator (Bottom Anchor Module) -->
+        <section class="bg-paper-card border border-editorial-border rounded-2xl shadow-xs overflow-hidden mb-16">
+            <div class="bg-stone-900 text-white p-6 sm:p-8">
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                        <div class="text-orange-400 font-mono text-xs font-semibold tracking-wider uppercase mb-1">
+                            MODULE 03 · SOCRATIC SPEAKING DRILL
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold font-serif">雅思 8.0+ 高阶口语与思辨对练工作台</h3>
+                    </div>
+                    <button onclick="copyCambridgePrompt()" class="ui-btn bg-stone-800 hover:bg-stone-700 text-stone-100 border border-stone-700 shadow-2xs">
+                        <svg class="w-4 h-4 text-orange-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                        <span>一键复制 剑桥考官 Prompt</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-6">
+                <!-- Topic Question -->
+                <div class="bg-orange-50/60 border border-orange-200 rounded-xl p-5">
+                    <div class="text-xs font-bold text-orange-800 uppercase tracking-wide mb-1 font-mono">Part 3 Discussion Prompt</div>
+                    <p class="text-base sm:text-lg font-serif font-bold text-stone-900" id="speakingQuestion">
+                        "Why do so many educated people chronically postpone significant life decisions despite having access to more information than ever before?"
+                    </p>
+                </div>
+
+                <!-- 8.5 Model Answer -->
+                <div class="border border-editorial-border rounded-xl p-5 bg-white space-y-3">
+                    <div class="flex items-center justify-between gap-2 flex-wrap">
+                        <span class="text-xs font-bold text-stone-500 uppercase tracking-wider font-mono">Cambridge 8.5+ Model Response</span>
+                        <button onclick="readAloud(document.getElementById('modelAnswerText').innerText)" class="ui-btn-sm bg-orange-50 hover:bg-orange-100 text-orange-700 border border-orange-200 transition-colors">
+                            <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path></svg>
+                            <span>示范朗读</span>
+                        </button>
+                    </div>
+                    <p class="text-stone-800 font-serif text-sm sm:text-base leading-relaxed" id="modelAnswerText">
+                        "Frankly speaking, modern delay is rarely a product of laziness; rather, it stems from the illusion of preparation. People often <strong class="text-orange-700 bg-orange-100 px-1 rounded">confuse being busy with moving forward</strong>, convincing themselves that gathering another credential or waiting for absolute certainty will mitigate risk. In reality, waiting for conditions to feel 'completely safe' is a cognitive trap. Growth inherently demands acting in the presence of discomfort, rather than <strong class="text-orange-700 bg-orange-100 px-1 rounded">postponing what matters</strong> until life is convenient."
+                    </p>
+                </div>
+
+                <!-- Practice Console -->
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between gap-2 flex-wrap">
+                        <label for="userSpeakingInput" class="text-xs font-bold text-stone-600 uppercase tracking-wider font-mono">
+                            Your Live Speaking / Text Practice
+                        </label>
+                        <div class="flex items-center gap-2">
+                            <button id="micBtn" onclick="toggleSpeechRecognition()" class="ui-btn-sm bg-stone-100 hover:bg-stone-200 text-stone-700 border border-stone-200 transition-colors">
+                                <svg id="micIcon" class="w-3.5 h-3.5 text-stone-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clip-rule="evenodd"></path></svg>
+                                <span id="micLabel">语音录入 (Mic)</span>
+                            </button>
+                        </div>
+                    </div>
+                    <textarea id="userSpeakingInput" rows="3" placeholder="在此输入或通过麦克风录入你的口语回答，尝试使用本期学到的 C1/C2 词伙..." class="w-full text-sm font-sans p-3.5 border border-editorial-border rounded-xl focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 focus:outline-hidden bg-stone-50/50"></textarea>
+
+                    <div class="flex justify-end gap-3">
+                        <button onclick="simulateExaminerPolish()" class="ui-btn bg-orange-600 hover:bg-orange-700 text-white px-5! shadow-xs">
+                            <span>✨ AI 考官即时评测与 C2 表达重写</span>
+                        </button>
+                    </div>
+
+                    <!-- AI Simulation Feedback Card -->
+                    <div id="aiFeedbackBox" class="hidden border border-emerald-200 bg-emerald-50/40 rounded-xl p-5 space-y-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-emerald-200/70 pb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                                <h4 class="text-sm font-bold text-stone-900 font-sans">Cambridge Examiner Assessment</h4>
+                            </div>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+                                Estimated Band: 8.0
+                            </span>
+                        </div>
+                        
+                        <div class="space-y-3 text-xs sm:text-sm">
+                            <div>
+                                <span class="font-bold text-stone-700">🎯 词伙调用核查 (Collocation Check):</span>
+                                <p id="aiCollocFeedback" class="text-stone-600 mt-0.5">成功检测到 2 个目标高阶搭配！语境嵌入非常自然。</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg border border-emerald-100">
+                                <div class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider mb-1 font-mono">C2 Native-Level Polish (母语高阶润色)</div>
+                                <p id="aiPolishedText" class="font-serif text-stone-800 italic leading-relaxed">
+                                    "Instead of succumbing to perpetual hesitation, we must acknowledge that waiting for an ideal moment is an exercise in futility. Action precedes clarity, not vice versa."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Slide-out In-Text Vocabulary Inspector Dock -->
+    <div id="vocabDock" class="dock-drawer closed fixed top-0 right-0 h-full w-full sm:w-[420px] bg-white border-l border-editorial-border shadow-2xl z-50 flex flex-col justify-between overflow-hidden">
+        
+        <!-- Dock Header -->
+        <div class="p-5 border-b border-editorial-border flex items-center justify-between bg-stone-50/70">
+            <div class="flex items-center gap-2">
+                <span class="text-xs font-mono font-bold px-2 py-0.5 bg-orange-100 text-orange-800 rounded">C1/C2 COLLOCATION</span>
+                <span class="text-xs text-stone-400">#外刊高频语料</span>
+            </div>
+            <button onclick="closeVocabDock()" class="p-1 rounded-md text-stone-400 hover:text-stone-700 hover:bg-stone-200/50 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <!-- Dock Content Body -->
+        <div class="p-6 space-y-6 overflow-y-auto flex-1">
+            <!-- Word Title & Phonetic -->
+            <div>
+                <h3 id="dockTitle" class="text-2xl font-bold font-serif text-stone-900 tracking-tight">postpone what matters</h3>
+                <div class="flex items-center gap-3 mt-1.5">
+                    <span id="dockIpa" class="font-mono text-sm text-stone-500">/pəʊˈspəʊn wɒt ˈmætəz/</span>
+                    <button onclick="playDockAudio()" class="text-orange-600 hover:text-orange-700 p-1 rounded-full hover:bg-orange-50 transition-colors" title="播放发音">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Meaning Definition -->
+            <div class="bg-orange-50/50 border-l-4 border-orange-500 p-3.5 rounded-r-lg">
+                <div class="text-[11px] font-bold text-orange-800 uppercase tracking-wider font-mono">语境核心释义</div>
+                <p id="dockMeaning" class="text-sm font-semibold text-stone-900 mt-0.5">无限期推迟真正重要的事情；逃避关键抉择</p>
+            </div>
+
+            <!-- Original Article Context -->
+            <div class="space-y-1.5">
+                <div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider font-mono">外刊原文出处 (Source Context)</div>
+                <div id="dockOriginSentence" class="text-xs sm:text-sm font-serif italic text-stone-700 bg-stone-50 p-3 rounded-lg border border-editorial-border">
+                    "They waste them quietly, through years of postponing what matters, worrying about things that do not..."
+                </div>
+            </div>
+
+            <!-- IELTS 8.0+ Speaking Upgrade Sentence -->
+            <div class="space-y-1.5">
+                <div class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider font-mono">雅思8.0+/高阶口语应用 (Speaking Upgrade)</div>
+                <div class="bg-emerald-50/50 border border-emerald-200/70 p-3.5 rounded-lg space-y-1">
+                    <p id="dockSpeakingUpgrade" class="text-xs sm:text-sm font-serif text-stone-800 font-medium">
+                        "Instead of postponing what matters due to the fear of failure, resilient leaders pivot decisively."
+                    </p>
+                    <p id="dockSpeakingZh" class="text-xs text-stone-500 font-sans">
+                        “与其因畏惧失败而推迟真正重要的事，真正有韧性的领导者会果断转变方向。”
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dock Footer Actions -->
+        <div class="p-4 border-t border-editorial-border bg-stone-50 flex items-center gap-3">
+            <button id="dockSaveBtn" onclick="toggleSaveCurrentWord()" class="flex-1 bg-obsidian hover:bg-stone-800 text-white text-xs font-semibold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-2xs">
+                <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
+                <span id="dockSaveText">加入生词本</span>
+            </button>
+            <button onclick="closeVocabDock()" class="px-4 py-2.5 border border-editorial-border hover:bg-stone-200/60 text-stone-600 text-xs font-medium rounded-xl transition-colors">
+                关闭
+            </button>
+        </div>
+    </div>
+
+    <!-- Vocabulary Vault Modal (生词复习闪卡抽屉) -->
+    <div id="vaultModal" class="hidden fixed inset-0 bg-black/40 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full border border-editorial-border shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+            <div class="p-5 border-b border-editorial-border flex items-center justify-between bg-stone-50">
+                <div class="flex items-center gap-2">
+                    <h3 class="font-bold text-stone-900 font-serif">我的 C1/C2 专属语料库</h3>
+                    <span id="vaultCountTag" class="text-xs bg-orange-100 text-orange-800 px-2 py-0.5 rounded-full font-bold">0 词</span>
+                </div>
+                <button onclick="closeVaultModal()" class="text-stone-400 hover:text-stone-700">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <div id="vaultList" class="p-5 overflow-y-auto space-y-3 flex-1">
+                <!-- Dynamically populated or empty state -->
+            </div>
+
+            <div class="p-4 border-t border-editorial-border bg-stone-50 flex items-center justify-between">
+                <button onclick="clearVault()" class="text-xs text-red-600 hover:underline">清空本期收藏</button>
+                <button onclick="closeVaultModal()" class="bg-obsidian text-white text-xs px-4 py-2 rounded-lg font-medium">完成</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import Issue Modal (便于即时更新架构) -->
+    <div id="importModal" class="hidden fixed inset-0 bg-black/40 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full border border-editorial-border shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="p-5 border-b border-editorial-border flex items-center justify-between bg-stone-50">
+                <div>
+                    <h3 class="font-bold text-stone-900 font-serif">发布与导入新一期外刊 (Instant Publish)</h3>
+                    <p class="text-xs text-stone-500 mt-0.5">直接粘贴 Gemini 生成的 JSON 格式或自定义段落即可毫秒上线</p>
+                </div>
+                <button onclick="closeImportModal()" class="text-stone-400 hover:text-stone-700">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-4 flex-1">
+                <div>
+                    <label class="block text-xs font-mono font-bold text-stone-600 mb-1">粘贴期刊 JSON 数据 (JSON Array / Object)</label>
+                    <textarea id="importJsonInput" rows="12" class="w-full font-mono text-xs p-3 border border-editorial-border rounded-xl bg-stone-50 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 focus:outline-hidden" placeholder='{ "id": "issue-custom", "badge": "ISSUE #04", "enTitle": "...", "zhTitle": "...", ... }'></textarea>
+                </div>
+                <div class="flex justify-between items-center text-xs text-stone-500">
+                    <span>💡 提示：使用预设模板快速体验新增期数</span>
+                    <button onclick="loadImportTemplate()" class="text-orange-600 font-semibold hover:underline">加载示例模板</button>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-editorial-border bg-stone-50 flex justify-end gap-3">
+                <button onclick="closeImportModal()" class="px-4 py-2 border border-editorial-border text-stone-600 text-xs font-medium rounded-lg">取消</button>
+                <button onclick="saveImportedIssue()" class="bg-orange-600 hover:bg-orange-700 text-white text-xs font-semibold px-5 py-2 rounded-lg transition-colors">立即导入并阅读</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Editorial Footer -->
+    <footer class="border-t border-editorial-border bg-paper-card py-10 mt-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+            <div class="flex items-center space-x-2">
+                <span class="font-serif font-bold text-stone-800 text-sm">Veritas Reader</span>
+                <span>· 极简高阶双语交互研读工作台</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span>Designed for Serious Learners</span>
+                <span>•</span>
+                <span>IELTS 8.0+ Ready</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App State & Interactive Logic -->
+    <script>
+        /* ==========================================================
+           1. DATA ARCHITECTURE: Dynamic Cloud JSON Loader (articles.json)
+           ========================================================== */
+        let ISSUES = [];
+
+        function showEditorialToast(message) {
+            let toast = document.getElementById('editorialToast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'editorialToast';
+                toast.className = 'fixed bottom-6 right-6 z-50 max-w-sm bg-obsidian text-white text-xs font-medium px-4 py-3 rounded-xl shadow-xl border border-stone-700 transition-all duration-300 opacity-0 translate-y-2 pointer-events-none';
+                document.body.appendChild(toast);
+            }
+            toast.textContent = message;
+            toast.classList.remove('opacity-0', 'translate-y-2');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            clearTimeout(window._toastTimer);
+            window._toastTimer = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-2');
+            }, 3200);
+        }
+
+        /* ==========================================================
+           2. STATE MANAGEMENT
+           ========================================================== */
+        let currentIssueIndex = 0;
+        let currentReadingMode = 'side-by-side'; // 'side-by-side' | 'en-only' | 'tap-reveal'
+        let currentFontScale = 1; // 1 = 16px baseline
+        let activeVocabData = null;
+        let savedVault = JSON.parse(localStorage.getItem('veritas_vault') || '[]');
+        let isRecording = false;
+        let recognition = null;
+
+        /* ==========================================================
+           3. INITIALIZATION & RENDER (Async Cloud Fetch from articles.json)
+           ========================================================== */
+        async function init() {
+            updateVaultBadge();
+            setupKeyboardShortcuts();
+            try {
+                const response = await fetch('articles.json?t=' + Date.now());
+                if (!response.ok) throw new Error('Failed to load articles.json');
+                ISSUES = await response.json();
+
+                populateIssueDropdown();
+                renderCurrentIssue();
+            } catch (error) {
+                console.warn("本地或沙盒预览提示 - 等待加载同目录下的 articles.json:", error);
+                const container = document.getElementById('readingContainer');
+                if (container) {
+                    container.innerHTML = `
+                        <div class="p-8 text-center space-y-4 bg-orange-50/70 border border-orange-200 rounded-2xl max-w-2xl mx-auto my-4">
+                            <div class="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold font-mono">
+                                CLOUD JSON ENGINE READY · 前后端分离已就绪
+                            </div>
+                            <h3 class="text-lg font-bold text-stone-900 font-cnsans">
+                                正在等待云端环境加载 <code class="px-1.5 py-0.5 bg-white rounded border border-orange-200 text-orange-700 font-mono text-sm">articles.json</code>
+                            </h3>
+                            <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                                当你将 <strong>index.html</strong> 与 <strong>articles.json</strong> 一同上传至 <strong>GitHub Pages</strong> 或 <strong>Netlify</strong> 后，网页会自动拉取全部 5 期外刊数据。<br>
+                                <span class="text-stone-500">（注：直接双击本地 HTML 或在当前沙盒内预览时，浏览器安全策略会默认拦截本地跨文件请求，你也可以点击下方按钮直接加载本地的 articles.json 进行预览测试。）</span>
+                            </p>
+                            <div class="pt-2 flex justify-center gap-3 flex-wrap">
+                                <label class="ui-btn bg-obsidian hover:bg-stone-800 text-white shadow-xs cursor-pointer">
+                                    <span>📂 本地测试：选择 articles.json 立即预览</span>
+                                    <input type="file" accept=".json,application/json" class="hidden" onchange="loadLocalJsonPreview(event)" />
+                                </label>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        function loadLocalJsonPreview(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    ISSUES = JSON.parse(e.target.result);
+                    currentIssueIndex = 0;
+                    populateIssueDropdown();
+                    renderCurrentIssue();
+                    showEditorialToast('已成功加载本地 articles.json 全部期刊！');
+                } catch (err) {
+                    showEditorialToast('articles.json 格式解析失败：' + err.message);
+                }
+            };
+            reader.readAsText(file, 'utf-8');
+        }
+
+        window.onload = init;
+
+        function populateIssueDropdown() {
+            const select = document.getElementById('issueSelect');
+            const pillsContainer = document.getElementById('issueQuickPills');
+            select.innerHTML = '';
+            if (pillsContainer) pillsContainer.innerHTML = '';
+
+            ISSUES.forEach((issue, idx) => {
+                const shortLabel = issue.badge.split('·')[0].trim();
+                const opt = document.createElement('option');
+                opt.value = idx;
+                opt.textContent = `[第${idx + 1}期] ${shortLabel}: ${issue.zhTitle.slice(0, 18)}... (${issue.paragraphs.length}段全文)`;
+                if (idx === currentIssueIndex) opt.selected = true;
+                select.appendChild(opt);
+
+                if (pillsContainer) {
+                    const pill = document.createElement('button');
+                    const isActive = (idx === currentIssueIndex);
+                    pill.onclick = () => loadSelectedIssue(idx);
+                    pill.className = isActive
+                        ? "ui-btn bg-obsidian text-white shadow-xs border border-obsidian"
+                        : "ui-btn bg-white hover:bg-stone-100 text-stone-700 border border-editorial-border";
+                    pill.innerHTML = `
+                        <span class="px-1.5 py-0.5 rounded text-[10px] font-mono ${isActive ? 'bg-orange-600 text-white' : 'bg-stone-100 text-stone-600'}">#0${idx + 1}</span>
+                        <span>${issue.zhTitle.slice(0, 15)}…</span>
+                        <span class="text-[10px] opacity-75 font-mono">(${issue.paragraphs.length}段)</span>
+                    `;
+                    pillsContainer.appendChild(pill);
+                }
+            });
+        }
+
+        function loadSelectedIssue(idx) {
+            currentIssueIndex = parseInt(idx, 10);
+            populateIssueDropdown();
+            renderCurrentIssue();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderCoverVisual(issue) {
+            const stage = document.getElementById('coverVisualStage');
+            if (!stage) return;
+
+            if (issue.imageUrl === 'svg-crimson-editorial') {
+                stage.style.backgroundColor = '#E84335';
+                stage.innerHTML = `
+                    <div class="w-full max-w-md h-56 sm:h-64 relative flex items-center justify-center p-4">
+                        <svg viewBox="0 0 400 240" class="w-full h-full drop-shadow-md" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M120,200 C110,130 150,80 180,60 C210,40 220,10 190,5 C170,2 145,20 150,45 C155,70 110,100 80,150 C50,200 40,210 10,210" stroke="#1A1A1A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <path d="M280,200 C290,130 250,80 220,60 C190,40 180,10 210,5 C230,2 255,20 250,45 C245,70 290,100 320,150 C350,200 360,210 390,210" stroke="#1A1A1A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <circle cx="178" cy="25" r="14" fill="#E8B494" stroke="#1A1A1A" stroke-width="4"/>
+                            <circle cx="222" cy="25" r="14" fill="#E8B494" stroke="#1A1A1A" stroke-width="4"/>
+                            <path d="M164,15 C150,30 180,45 178,55" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M236,15 C250,30 220,45 222,55" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/>
+                            <line x1="20" y1="210" x2="380" y2="210" stroke="#1A1A1A" stroke-width="12" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                `;
+            } else {
+                stage.style.backgroundColor = issue.themeColor || '#1C1917';
+                stage.innerHTML = `
+                    <img src="${issue.imageUrl}" alt="${issue.enTitle}" 
+                         class="w-full h-full object-cover object-center opacity-90 transition-transform duration-700 hover:scale-105"
+                         onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'p-12 text-center text-white/80 font-serif\\'>[外刊原图受防盗链保护，可点击右上角自定义替换配图 URL]</div>';" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/40 pointer-events-none"></div>
+                `;
+            }
+        }
+
+        function promptCustomImage() {
+            const issue = ISSUES[currentIssueIndex];
+            const url = prompt("请输入新的文章配图 URL（支持任意外刊原图地址，或输入 svg-crimson-editorial 切换杂志插画风）：", issue.imageUrl);
+            if (url && url.trim()) {
+                issue.imageUrl = url.trim();
+                renderCoverVisual(issue);
+            }
+        }
+
+        function renderCurrentIssue() {
+            const issue = ISSUES[currentIssueIndex];
+            
+            // Header & Metadata elements
+            document.getElementById('issueDateBadge').textContent = issue.badge;
+            document.getElementById('articleEnglishTitle').textContent = issue.enTitle;
+            document.getElementById('articleChineseTitle').textContent = issue.zhTitle;
+            document.getElementById('articleEnKeyTakeaway').textContent = issue.enKeyTakeaway;
+            document.getElementById('articleZhKeyTakeaway').textContent = issue.zhKeyTakeaway;
+            
+            const sourceLink = document.getElementById('issueSourceLink');
+            if (sourceLink) sourceLink.href = issue.sourceUrl || '#';
+            const captionEl = document.getElementById('issueImageCaption');
+            if (captionEl) captionEl.textContent = issue.imageCaption || '';
+            const authorEl = document.getElementById('issueAuthorBadge');
+            if (authorEl) authorEl.textContent = issue.author ? `By ${issue.author}` : '';
+            const countBadge = document.getElementById('paragraphCountBadge');
+            if (countBadge) countBadge.textContent = `全文共 ${issue.paragraphs.length} 自然段 · 100% 零删减原刊`;
+
+            renderCoverVisual(issue);
+
+            // Speaking section
+            document.getElementById('speakingQuestion').textContent = `"${issue.speaking.question}"`;
+            document.getElementById('modelAnswerText').innerHTML = highlightSpeakingModelAnswer(issue.speaking.modelAnswer, issue.speaking.targetPhrases);
+
+            // Reset AI box
+            document.getElementById('aiFeedbackBox').classList.add('hidden');
+            document.getElementById('userSpeakingInput').value = '';
+
+            // Render Paragraphs
+            const container = document.getElementById('readingContainer');
+            container.innerHTML = '';
+
+            issue.paragraphs.forEach((p, pIndex) => {
+                const row = document.createElement('div');
+                row.className = `bilingual-row ${currentReadingMode} pt-6 pb-6 border-b border-editorial-border/60 last:border-0`;
+
+                // Parse highlighted words into interactive spans
+                const parsedEnHTML = parseHighlightedText(p.enText, pIndex === 0);
+
+                // English Column
+                const enCol = document.createElement('div');
+                enCol.className = 'en-column space-y-2';
+                enCol.innerHTML = `
+                    <div class="flex items-center justify-between gap-2 text-xs font-mono text-stone-400 mb-1">
+                        <span class="font-bold text-stone-700 uppercase tracking-wider">${p.enHeading}</span>
+                        <button onclick="readAloudParagraph('${escapeForTTS(p.enText)}')" class="ui-btn-sm bg-stone-100/80 hover:bg-orange-50 text-stone-600 hover:text-orange-700 border border-editorial-border/80">
+                            <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path></svg>
+                            <span>朗读本段</span>
+                        </button>
+                    </div>
+                    <p class="font-serif text-stone-900 leading-relaxed ${pIndex === 0 ? 'dropcap' : ''}" style="font-size: ${1.05 * currentFontScale}rem;">
+                        ${parsedEnHTML}
+                    </p>
+                `;
+
+                // Chinese Column
+                const zhCol = document.createElement('div');
+                zhCol.className = 'zh-column space-y-2';
+                const isHidden = (currentReadingMode === 'tap-reveal');
+                zhCol.innerHTML = `
+                    <div class="text-xs font-cnsans font-bold text-stone-600 mb-1 flex items-center justify-between">
+                        <span>${p.zhHeading}</span>
+                        ${isHidden ? '<span class="text-[11px] font-normal text-orange-600 font-sans">点击段落揭晓译文</span>' : ''}
+                    </div>
+                    <p class="font-cnsans text-stone-700 leading-relaxed ${isHidden ? 'zh-hidden' : ''}" 
+                       onclick="revealChinese(this)" 
+                       style="font-size: ${1.02 * currentFontScale}rem;">
+                        ${p.zhText}
+                    </p>
+                `;
+
+                if (currentReadingMode === 'en-only') {
+                    zhCol.classList.add('hidden');
+                }
+
+                row.appendChild(enCol);
+                row.appendChild(zhCol);
+                container.appendChild(row);
+            });
+        }
+
+        /* Highlight helper syntax: {{phrase||ipa||meaning||origin||upgrade||zh}} */
+        function parseHighlightedText(rawText, isFirstParagraph) {
+            const regex = /\{\{(.*?)\}\}/g;
+            return rawText.replace(regex, function(match, content) {
+                const parts = content.split('||');
+                const phrase = parts[0] || '';
+                const ipa = parts[1] || '';
+                const meaning = parts[2] || '';
+                const origin = parts[3] || '';
+                const upgrade = parts[4] || '';
+                const zhUpgrade = parts[5] || '';
+
+                const safePayload = encodeURIComponent(JSON.stringify({
+                    phrase, ipa, meaning, origin, upgrade, zhUpgrade
+                }));
+
+                return `<span class="colloc-tag" onclick="inspectVocab('${safePayload}')">${phrase}</span>`;
+            });
+        }
+
+        function highlightSpeakingModelAnswer(text, targetPhrases) {
+            let res = text;
+            targetPhrases.forEach(ph => {
+                const reg = new RegExp(`(${ph})`, 'gi');
+                res = res.replace(reg, '<strong class="text-orange-700 bg-orange-100 px-1 py-0.5 rounded font-semibold">$1</strong>');
+            });
+            return res;
+        }
+
+        /* ==========================================================
+           4. VOCABULARY INSPECTOR & VAULT LOGIC
+           ========================================================== */
+        function inspectVocab(encodedData) {
+            const data = JSON.parse(decodeURIComponent(encodedData));
+            activeVocabData = data;
+
+            document.getElementById('dockTitle').textContent = data.phrase;
+            document.getElementById('dockIpa').textContent = data.ipa || '/n/a/';
+            document.getElementById('dockMeaning').textContent = data.meaning;
+            document.getElementById('dockOriginSentence').textContent = `"${data.origin}"`;
+            document.getElementById('dockSpeakingUpgrade').textContent = `"${data.upgrade}"`;
+            document.getElementById('dockSpeakingZh').textContent = data.zhUpgrade ? `“${data.zhUpgrade}”` : '';
+
+            // Check if already in vault
+            updateDockSaveButton();
+
+            // Open Drawer
+            const dock = document.getElementById('vocabDock');
+            dock.classList.remove('closed');
+        }
+
+        function closeVocabDock() {
+            document.getElementById('vocabDock').classList.add('closed');
+        }
+
+        function updateDockSaveButton() {
+            const isSaved = savedVault.some(item => item.phrase.toLowerCase() === activeVocabData.phrase.toLowerCase());
+            const saveText = document.getElementById('dockSaveText');
+            const saveBtn = document.getElementById('dockSaveBtn');
+
+            if (isSaved) {
+                saveText.textContent = '已存入生词本 (点击移出)';
+                saveBtn.classList.remove('bg-obsidian');
+                saveBtn.classList.add('bg-emerald-700');
+            } else {
+                saveText.textContent = '加入生词本';
+                saveBtn.classList.remove('bg-emerald-700');
+                saveBtn.classList.add('bg-obsidian');
+            }
+        }
+
+        function toggleSaveCurrentWord() {
+            if (!activeVocabData) return;
+            const index = savedVault.findIndex(item => item.phrase.toLowerCase() === activeVocabData.phrase.toLowerCase());
+            if (index >= 0) {
+                savedVault.splice(index, 1);
+            } else {
+                savedVault.push(activeVocabData);
+            }
+            localStorage.setItem('veritas_vault', JSON.stringify(savedVault));
+            updateDockSaveButton();
+            updateVaultBadge();
+        }
+
+        function updateVaultBadge() {
+            document.getElementById('vaultBadge').textContent = savedVault.length;
+            document.getElementById('vaultCountTag').textContent = `${savedVault.length} 词`;
+        }
+
+        function openVaultModal() {
+            const list = document.getElementById('vaultList');
+            list.innerHTML = '';
+
+            if (savedVault.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-12 text-stone-400 text-sm">
+                        <svg class="w-10 h-10 mx-auto text-stone-300 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        暂无收藏词伙，在文章中点击高亮词即可加入复习库！
+                    </div>
+                `;
+            } else {
+                savedVault.forEach((v, idx) => {
+                    const item = document.createElement('div');
+                    item.className = 'border border-editorial-border rounded-xl p-3.5 bg-stone-50/50 hover:bg-white transition-all space-y-1.5';
+                    item.innerHTML = `
+                        <div class="flex items-center justify-between">
+                            <span class="font-serif font-bold text-stone-900 text-base">${v.phrase}</span>
+                            <div class="flex items-center gap-1.5">
+                                <button onclick="readAloud('${v.phrase}')" class="text-orange-600 p-1 hover:bg-orange-50 rounded">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path></svg>
+                                </button>
+                                <button onclick="removeVaultItem(${idx})" class="text-stone-400 hover:text-red-600 p-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="text-xs text-orange-800 font-medium">${v.meaning}</div>
+                        <div class="text-xs text-stone-600 font-serif italic">${v.upgrade}</div>
+                    `;
+                    list.appendChild(item);
+                });
+            }
+
+            document.getElementById('vaultModal').classList.remove('hidden');
+        }
+
+        function closeVaultModal() {
+            document.getElementById('vaultModal').classList.add('hidden');
+        }
+
+        function removeVaultItem(idx) {
+            savedVault.splice(idx, 1);
+            localStorage.setItem('veritas_vault', JSON.stringify(savedVault));
+            updateVaultBadge();
+            openVaultModal();
+        }
+
+        function clearVault() {
+            savedVault = [];
+            localStorage.removeItem('veritas_vault');
+            updateVaultBadge();
+            openVaultModal();
+        }
+
+        /* ==========================================================
+           5. READING MODES & DISPLAY CONTROLS
+           ========================================================== */
+        function setMode(mode) {
+            currentReadingMode = mode;
+            
+            // Desktop active state
+            document.querySelectorAll('#btnModeSide, #btnModeEn, #btnModeReveal').forEach(btn => {
+                btn.className = "h-7 px-3 rounded-md transition-all hover:text-obsidian text-stone-600 whitespace-nowrap";
+            });
+            if (mode === 'side-by-side') document.getElementById('btnModeSide').className = "h-7 px-3 rounded-md transition-all bg-white text-obsidian font-semibold shadow-2xs whitespace-nowrap";
+            if (mode === 'en-only') document.getElementById('btnModeEn').className = "h-7 px-3 rounded-md transition-all bg-white text-obsidian font-semibold shadow-2xs whitespace-nowrap";
+            if (mode === 'tap-reveal') document.getElementById('btnModeReveal').className = "h-7 px-3 rounded-md transition-all bg-white text-obsidian font-semibold shadow-2xs whitespace-nowrap";
+
+            // Mobile active state
+            document.querySelectorAll('.mob-mode-btn').forEach(btn => {
+                if (btn.dataset.mode === mode) {
+                    btn.className = "mob-mode-btn px-3 py-1 rounded-md bg-white text-orange-600 font-bold shadow-2xs";
+                } else {
+                    btn.className = "mob-mode-btn px-3 py-1 rounded-md text-stone-600";
+                }
+            });
+
+            renderCurrentIssue();
+        }
+
+        function revealChinese(element) {
+            if (currentReadingMode === 'tap-reveal') {
+                element.classList.toggle('zh-revealed');
+            }
+        }
+
+        function changeFontSize(delta) {
+            currentFontScale = Math.min(Math.max(currentFontScale + delta * 0.08, 0.8), 1.4);
+            renderCurrentIssue();
+        }
+
+        /* ==========================================================
+           6. AUDIO TTS & SPEECH RECOGNITION (Web Speech API)
+           ========================================================== */
+        function readAloud(text) {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.95; // Natural editorial cadence
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function playDockAudio() {
+            if (activeVocabData) {
+                readAloud(activeVocabData.phrase);
+            }
+        }
+
+        function readAloudParagraph(rawText) {
+            // Strip tags and syntax
+            const clean = rawText.replace(/\{\{(.*?)\|(.*?)\|(.*?)\|(.*?)\|(.*?)\|(.*?)\}\}/g, '$1');
+            readAloud(clean);
+        }
+
+        function readAloudEntireArticle() {
+            const issue = ISSUES[currentIssueIndex];
+            const fullText = issue.paragraphs.map(p => {
+                return p.enText.replace(/\{\{(.*?)\|(.*?)\|(.*?)\|(.*?)\|(.*?)\|(.*?)\}\}/g, '$1');
+            }).join(' ... ');
+            readAloud(fullText);
+        }
+
+        function stopTTS() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+        }
+
+        function escapeForTTS(str) {
+            return str.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        }
+
+        function toggleSpeechRecognition() {
+            const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRec) {
+                showEditorialToast('当前浏览器未原生支持语音识别，请直接在文本框输入文字。');
+                return;
+            }
+
+            if (!recognition) {
+                recognition = new SpeechRec();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US';
+
+                recognition.onresult = (event) => {
+                    let transcript = '';
+                    for (let i = event.resultIndex; i < event.results.length; ++i) {
+                        transcript += event.results[i][0].transcript;
+                    }
+                    document.getElementById('userSpeakingInput').value = transcript;
+                };
+
+                recognition.onerror = () => {
+                    stopMic();
+                };
+
+                recognition.onend = () => {
+                    stopMic();
+                };
+            }
+
+            if (!isRecording) {
+                recognition.start();
+                isRecording = true;
+                document.getElementById('micLabel').textContent = '正在倾听... (点击停止)';
+                document.getElementById('micBtn').classList.add('bg-red-100', 'text-red-700');
+                document.getElementById('micIcon').classList.add('text-red-600', 'animate-pulse');
+            } else {
+                recognition.stop();
+                stopMic();
+            }
+        }
+
+        function stopMic() {
+            isRecording = false;
+            document.getElementById('micLabel').textContent = '语音录入 (Mic)';
+            document.getElementById('micBtn').classList.remove('bg-red-100', 'text-red-700');
+            document.getElementById('micIcon').classList.remove('text-red-600', 'animate-pulse');
+        }
+
+        /* ==========================================================
+           7. AI EXAMINER POLISH SIMULATION
+           ========================================================== */
+        function simulateExaminerPolish() {
+            const input = document.getElementById('userSpeakingInput').value.trim();
+            const currentIssue = ISSUES[currentIssueIndex];
+            const targetPhrases = currentIssue.speaking.targetPhrases;
+
+            const box = document.getElementById('aiFeedbackBox');
+            box.classList.remove('hidden');
+
+            if (!input) {
+                document.getElementById('aiCollocFeedback').innerHTML = `<span class="text-amber-700 font-medium">⚠️ 尚未检测到口语输入，请先在上方输入框写下一句对本题的回答或点击语音录制。</span>`;
+                document.getElementById('aiPolishedText').textContent = "Awaiting input...";
+                return;
+            }
+
+            // Check if any target phrase was matched
+            let usedPhrases = [];
+            targetPhrases.forEach(ph => {
+                if (input.toLowerCase().includes(ph.toLowerCase())) {
+                    usedPhrases.push(ph);
+                }
+            });
+
+            if (usedPhrases.length > 0) {
+                document.getElementById('aiCollocFeedback').innerHTML = `
+                    <span class="text-emerald-700 font-semibold">✅ 卓越表现！成功调用目标词伙：${usedPhrases.map(p => `<strong>"${p}"</strong>`).join(', ')}。论述具备鲜明的高级口语张力！</span>
+                `;
+            } else {
+                document.getElementById('aiCollocFeedback').innerHTML = `
+                    <span class="text-stone-700">💡 提示：你的回答很完整，但未出现本期核心词伙（如 ${targetPhrases.slice(0, 2).map(p => `<strong>"${p}"</strong>`).join(', ')}）。试着在下一轮重构中将其作为连接论点的骨架。</span>
+                `;
+            }
+
+            // Provide simulated C2 polish based on user's input
+            document.getElementById('aiPolishedText').textContent = `"${input} Specifically, by refusing to fall into the inertia of waiting, we construct our authentic trajectory through decisive agency."`;
+        }
+
+        function copyCambridgePrompt() {
+            const issue = ISSUES[currentIssueIndex];
+            const prompt = `You are a Cambridge IELTS Speaking Examiner and an Oxford Rhetoric Professor. We are conducting a high-stakes Part 3 discussion drill based on the topic: "${issue.speaking.question}".
+
+Rules for our conversation:
+1. Speak in a sophisticated, intellectual, yet conversational C2 tone.
+2. Pose one challenging follow-up question at a time.
+3. In every response, evaluate whether I used any of these target phrases: ${JSON.stringify(issue.speaking.targetPhrases)}.
+4. Before asking the next question, rewrite my preceding statement into an IELTS Band 8.5+ polished model version. Let's begin now!`;
+
+            navigator.clipboard.writeText(prompt).then(() => {
+                showEditorialToast('已复制 Cambridge 考官对练专属 Prompt！直接粘贴给 Gemini / ChatGPT 即可开启语音对练。');
+            });
+        }
+
+        /* ==========================================================
+           8. INSTANT UPDATE / IMPORT ARCHITECTURE
+           ========================================================== */
+        function openImportModal() {
+            document.getElementById('importModal').classList.remove('hidden');
+        }
+
+        function closeImportModal() {
+            document.getElementById('importModal').classList.add('hidden');
+        }
+
+        function loadImportTemplate() {
+            const template = {
+                id: `issue-${ISSUES.length + 1}`,
+                badge: `ISSUE #0${ISSUES.length + 1} · HIGH PERFORMANCE`,
+                enTitle: "The Friction of Decision Making",
+                zhTitle: "高认知决策中的阻力与突破",
+                themeColor: "#C2410C",
+                enKeyTakeaway: "Most strategic failures are failures of inaction, masked as rigorous deliberation.",
+                zhKeyTakeaway: "绝大多数战略失败不是因为做错了决策，而是假借周密考量之名的无限拖延。",
+                paragraphs: [
+                    {
+                        enHeading: "The Myth of Complete Information",
+                        zhHeading: "完美信息的认知神话",
+                        enText: "In complex environments, waiting for absolute certainty is a {{costly delusion||/ˈkɒstli dɪˈluːʒn/||代价高昂的错觉/妄念||...waiting for absolute certainty is a costly delusion.||Chasing risk-free certainty in business is a costly delusion.||在商业中追逐零风险的绝对确定性，是一场代价高昂的错觉。}}. Real world momentum favors those who calibrate under uncertainty.",
+                        zhText: "在复杂商业与生活环境中，等待绝对的确定性是一种代价高昂的错觉。现实世界的动能始终偏爱那些在不确定性中迅速校准路线的行动者。"
+                    }
+                ],
+                speaking: {
+                    question: "How should leaders balance thorough analysis with fast execution in volatile conditions?",
+                    modelAnswer: "Treating speed and rigor as mutually exclusive is an error. Leaders must establish clear heuristics to avoid costly delusions.",
+                    targetPhrases: ["costly delusion"]
+                }
+            };
+            document.getElementById('importJsonInput').value = JSON.stringify(template, null, 2);
+        }
+
+        function saveImportedIssue() {
+            const val = document.getElementById('importJsonInput').value.trim();
+            if (!val) return;
+            try {
+                const parsed = JSON.parse(val);
+                if (Array.isArray(parsed)) {
+                    ISSUES.push(...parsed);
+                } else {
+                    ISSUES.push(parsed);
+                }
+                populateIssueDropdown();
+                currentIssueIndex = ISSUES.length - 1;
+                document.getElementById('issueSelect').value = currentIssueIndex;
+                renderCurrentIssue();
+                closeImportModal();
+                showEditorialToast('新一期期刊已成功导入并发布！可立即进行双语交互研读。');
+            } catch (err) {
+                showEditorialToast('JSON 解析失败，请检查输入格式是否符合规范：' + err.message);
+            }
+        }
+
+        /* Keyboard Navigation */
+        function setupKeyboardShortcuts() {
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeVocabDock();
+                    closeVaultModal();
+                    closeImportModal();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
