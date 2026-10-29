@@ -168,7 +168,7 @@
 <body class="consumer-edition bg-paper text-obsidian font-sans antialiased selection:bg-orange-100 selection:text-orange-900 min-h-screen flex flex-col justify-between">
 
     <!-- VIP Commercial Access Gate Overlay -->
-    <div id="vipAccessGate" class="fixed inset-0 z-50 bg-paper/95 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300">
+    <div id="vipAccessGate" class="hidden fixed inset-0 z-50 bg-paper/95 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300">
         <div class="bg-white border border-editorial-border rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl space-y-6 text-center relative overflow-hidden">
             <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-obsidian via-orange-600 to-amber-500"></div>
             
@@ -191,7 +191,7 @@
             <div class="bg-stone-50 border border-editorial-border rounded-xl p-3 text-left space-y-1.5 text-xs text-stone-600">
                 <div class="flex items-center gap-2">
                     <span class="text-orange-600 font-bold">✓</span>
-                    <span>《卫报》《ScienceDaily》等 100% 零删减双语对照</span>
+                    <span>三位一体内容轨：自研认知社论 + 前沿母题高阶重构 + 外刊精析</span>
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="text-orange-600 font-bold">✓</span>
@@ -199,7 +199,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="text-orange-600 font-bold">✓</span>
-                    <span>内置全文 TTS 朗读、生词闪卡库与苏格拉底口语考官对练</span>
+                    <span>内置词伙发音、间隔复习生词闪卡库与 AI 口语思辨润色练习</span>
                 </div>
             </div>
 
@@ -214,7 +214,10 @@
                     ⚠️ 口令无效，请核对您的会员通行码后重试。
                 </p>
                 <button onclick="verifyVipAccess()" class="w-full py-3 rounded-xl bg-obsidian hover:bg-stone-800 text-white font-semibold text-sm shadow-sm transition-all cursor-pointer">
-                    立即解锁精读工作台 →
+                    立即解锁全库期刊 →
+                </button>
+                <button onclick="closeVipModalToFreeTrial()" class="w-full py-2.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium text-xs transition-all cursor-pointer">
+                    暂不输入，先免费深度试读第 #01 期示范单元
                 </button>
             </div>
 
@@ -288,6 +291,21 @@
 
     <!-- Main Editorial Article Container -->
     <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 flex-1 w-full">
+        <!-- Freemium Value Proposition & Trial Status Banner -->
+        <div id="freemiumBanner" class="mb-5 bg-gradient-to-r from-stone-900 via-stone-800 to-obsidian text-white rounded-2xl p-4 sm:px-6 flex flex-wrap items-center justify-between gap-3 shadow-xs border border-stone-700">
+            <div class="space-y-0.5">
+                <div class="flex items-center gap-2">
+                    <span id="vipStatusBadge" class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-orange-500 text-white">FREE TRIAL · 免费试读模式</span>
+                    <span class="text-xs sm:text-sm font-bold font-serif">专为雅思 7.5+、留学生与高阶职场人打造的 C1/C2 词伙与思辨工作台</span>
+                </div>
+                <p id="vipStatusSub" class="text-xs text-stone-300">
+                    当前第 #01 期示范单元已为您完整免费开放（支持双语切换、高亮词伙抽屉与口语练习）。解锁第 #02 期及后续更新请验证会员口令。
+                </p>
+            </div>
+            <button id="topVipUnlockBtn" onclick="openVipGateModal()" class="ui-btn bg-orange-600 hover:bg-orange-500 text-white shadow-xs">
+                <span>🔑 输入会员口令解锁全库</span>
+            </button>
+        </div>
         
         <!-- Quick Issue Switcher Pills (5 Unabridged Authentic Issues) -->
         <div id="issueQuickPills" class="flex items-center gap-2.5 overflow-x-auto pb-3 mb-4 no-scrollbar">
@@ -306,7 +324,7 @@
                             THE GUARDIAN · 20 OCT 2026
                         </span>
                         <a id="issueSourceLink" href="https://www.theguardian.com" target="_blank" rel="noopener noreferrer" class="ui-btn-sm bg-white/95 hover:bg-white text-obsidian rounded-full! px-3! shadow-sm transition-all">
-                            <span>访问外刊原网页</span>
+                            <span>访问议题参考来源</span>
                             <svg class="w-3.5 h-3.5 text-orange-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                         </a>
                     </div>
@@ -315,7 +333,7 @@
                             <span>🖼️ 更换配图 URL</span>
                         </button>
                         <span id="paragraphCountBadge" class="ui-pill bg-orange-600/95 text-white text-[11px] font-mono font-bold px-3 py-1.5 rounded-md backdrop-blur-md shadow-xs">
-                            全文 11 段 · 零删减
+                            全文 9 段 · 深度精读
                         </span>
                     </div>
                 </div>
@@ -369,7 +387,7 @@
                 <div class="flex items-center gap-2 flex-wrap">
                     <button onclick="readAloudEntireArticle()" class="ui-btn-sm bg-white hover:bg-stone-100 text-stone-800 border border-editorial-border shadow-2xs transition-colors">
                         <svg class="w-3.5 h-3.5 text-orange-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path></svg>
-                        <span>全文原声朗读 (TTS)</span>
+                        <span>本篇语音导读 (TTS)</span>
                     </button>
                     <button onclick="stopTTS()" class="ui-btn-sm bg-white hover:bg-red-50 text-stone-600 hover:text-red-600 border border-editorial-border shadow-2xs transition-colors" title="停止朗读">
                         <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -400,7 +418,7 @@
                     </div>
                     <button onclick="copyCambridgePrompt()" class="ui-btn bg-stone-800 hover:bg-stone-700 text-stone-100 border border-stone-700 shadow-2xs">
                         <svg class="w-4 h-4 text-orange-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
-                        <span>一键复制 剑桥考官 Prompt</span>
+                        <span>一键复制 高阶口语对练 Prompt</span>
                     </button>
                 </div>
             </div>
@@ -417,7 +435,7 @@
                 <!-- 8.5 Model Answer -->
                 <div class="border border-editorial-border rounded-xl p-5 bg-white space-y-3">
                     <div class="flex items-center justify-between gap-2 flex-wrap">
-                        <span class="text-xs font-bold text-stone-500 uppercase tracking-wider font-mono">Cambridge 8.5+ Model Response</span>
+                        <span class="text-xs font-bold text-stone-500 uppercase tracking-wider font-mono">High-Scoring C1/C2 Model Response (高分风格示范 · 非官方)</span>
                         <button onclick="readAloud(document.getElementById('modelAnswerText').innerText)" class="ui-btn-sm bg-orange-50 hover:bg-orange-100 text-orange-700 border border-orange-200 transition-colors">
                             <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path></svg>
                             <span>示范朗读</span>
@@ -445,7 +463,7 @@
 
                     <div class="flex justify-end gap-3">
                         <button onclick="simulateExaminerPolish()" class="ui-btn bg-orange-600 hover:bg-orange-700 text-white px-5! shadow-xs">
-                            <span>✨ AI 考官即时评测与 C2 表达重写</span>
+                            <span>✨ AI 语言润色与 C2 表达升级参考</span>
                         </button>
                     </div>
 
@@ -454,10 +472,10 @@
                         <div class="flex items-center justify-between border-b border-emerald-200/70 pb-3">
                             <div class="flex items-center gap-2">
                                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                                <h4 class="text-sm font-bold text-stone-900 font-sans">Cambridge Examiner Assessment</h4>
+                                <h4 class="text-sm font-bold text-stone-900 font-sans">AI Speaking Rhetoric Feedback (非官方练习参考)</h4>
                             </div>
                             <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
-                                Estimated Band: 8.0
+                                Target Register: C1/C2 (仅供练习参考)
                             </span>
                         </div>
                         
@@ -624,11 +642,13 @@
         /* ==========================================================
            0. COMMERCIAL VIP ACCESS GATE & ADMIN MODE CONTROL
            ========================================================== */
-        // 买家通行口令（可随时在此增删或修改口令，修改后全网自动生效）：
+        // 买家通行口令（支持一客一码或批次卡密，随时增删）：
         const VIP_BUYER_CODES = ['VERITAS2026', 'VIP2026', 'READER888'];
-        // 主理人管理员口令（输入此口令将自动开启「+ 新期刊」与「更换配图」后台按钮）：
+        // 主理人管理员口令（开启「+ 新期刊」与「更换配图」后台按钮）：
         const ADMIN_MASTER_CODE = 'ADMIN888';
         const VIP_STORAGE_KEY = 'veritas_vip_token_v1';
+        let isVipUnlocked = false;
+        let pendingIssueIndex = null;
 
         function checkInitialVipState() {
             try {
@@ -644,6 +664,21 @@
             }
         }
 
+        function openVipGateModal() {
+            const gate = document.getElementById('vipAccessGate');
+            if (gate) gate.classList.remove('hidden');
+        }
+
+        function closeVipModalToFreeTrial() {
+            const gate = document.getElementById('vipAccessGate');
+            if (gate) gate.classList.add('hidden');
+            if (currentIssueIndex !== 0 && !isVipUnlocked) {
+                currentIssueIndex = 0;
+                populateIssueDropdown();
+                renderCurrentIssue();
+            }
+        }
+
         function verifyVipAccess() {
             const inputEl = document.getElementById('vipCodeInput');
             const errEl = document.getElementById('vipErrorMsg');
@@ -652,36 +687,75 @@
             if (code === ADMIN_MASTER_CODE) {
                 try { localStorage.setItem(VIP_STORAGE_KEY, code); } catch (e) {}
                 unlockStudio(true);
-                showEditorialToast('已解锁主理人管理模式（后台管理按钮已激活）');
+                showEditorialToast('已解锁主理人管理模式（全库期刊与管理后台已激活）');
             } else if (VIP_BUYER_CODES.includes(code)) {
                 try { localStorage.setItem(VIP_STORAGE_KEY, code); } catch (e) {}
                 unlockStudio(false);
-                showEditorialToast('欢迎进入 Veritas Reader C1/C2 精读工作台！');
+                showEditorialToast('VIP 会员验证成功！已为您解锁全库所有期刊。');
             } else {
                 if (errEl) errEl.classList.remove('hidden');
             }
         }
 
         function unlockStudio(isAdmin) {
+            isVipUnlocked = true;
             const gate = document.getElementById('vipAccessGate');
             if (gate) gate.classList.add('hidden');
             const errEl = document.getElementById('vipErrorMsg');
             if (errEl) errEl.classList.add('hidden');
+
+            const badge = document.getElementById('vipStatusBadge');
+            const sub = document.getElementById('vipStatusSub');
+            const btn = document.getElementById('topVipUnlockBtn');
+            if (badge) {
+                badge.textContent = isAdmin ? 'ADMIN STUDIO · 主理人管理模式' : 'VIP MEMBER · 全库已解锁';
+                badge.className = 'text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-600 text-white';
+            }
+            if (sub) {
+                sub.textContent = '您已解锁全库所有期刊（含自研原创长文、外刊母题高阶重构与科学财经精析）。';
+            }
+            if (btn) {
+                btn.innerHTML = '<span>✓ 会员已激活 (点击切换)</span>';
+                btn.className = 'ui-btn bg-stone-700 hover:bg-stone-600 text-stone-200 shadow-xs';
+                btn.onclick = resetVipAccess;
+            }
 
             if (isAdmin) {
                 document.body.classList.remove('consumer-edition');
             } else {
                 document.body.classList.add('consumer-edition');
             }
+
+            populateIssueDropdown();
+            if (pendingIssueIndex !== null) {
+                const target = pendingIssueIndex;
+                pendingIssueIndex = null;
+                loadSelectedIssue(target);
+            }
         }
 
         function resetVipAccess() {
+            isVipUnlocked = false;
             try { localStorage.removeItem(VIP_STORAGE_KEY); } catch (e) {}
             const inputEl = document.getElementById('vipCodeInput');
             if (inputEl) inputEl.value = '';
-            const gate = document.getElementById('vipAccessGate');
-            if (gate) gate.classList.remove('hidden');
             document.body.classList.add('consumer-edition');
+            const badge = document.getElementById('vipStatusBadge');
+            const sub = document.getElementById('vipStatusSub');
+            const btn = document.getElementById('topVipUnlockBtn');
+            if (badge) {
+                badge.textContent = 'FREE TRIAL · 免费试读模式';
+                badge.className = 'text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-orange-500 text-white';
+            }
+            if (sub) {
+                sub.textContent = '当前第 #01 期示范单元已为您完整免费开放。解锁第 #02 期及后续更新请验证会员口令。';
+            }
+            if (btn) {
+                btn.innerHTML = '<span>🔑 输入会员口令解锁全库</span>';
+                btn.className = 'ui-btn bg-orange-600 hover:bg-orange-500 text-white shadow-xs';
+                btn.onclick = openVipGateModal;
+            }
+            openVipGateModal();
         }
 
         /* ==========================================================
@@ -788,9 +862,10 @@
 
             ISSUES.forEach((issue, idx) => {
                 const shortLabel = issue.badge.split('·')[0].trim();
+                const lockTag = (idx === 0) ? '【免费试读】' : (isVipUnlocked ? '【VIP已解锁】' : '🔒【VIP专享】');
                 const opt = document.createElement('option');
                 opt.value = idx;
-                opt.textContent = `[第${idx + 1}期] ${shortLabel}: ${issue.zhTitle.slice(0, 18)}... (${issue.paragraphs.length}段全文)`;
+                opt.textContent = `${lockTag} 第${idx + 1}期 | ${shortLabel}: ${issue.zhTitle.slice(0, 16)}... (${issue.paragraphs.length}段)`;
                 if (idx === currentIssueIndex) opt.selected = true;
                 select.appendChild(opt);
 
@@ -801,9 +876,10 @@
                     pill.className = isActive
                         ? "ui-btn bg-obsidian text-white shadow-xs border border-obsidian"
                         : "ui-btn bg-white hover:bg-stone-100 text-stone-700 border border-editorial-border";
+                    const badgeLabel = (idx === 0) ? '免费试读' : (isVipUnlocked ? `#0${idx + 1}` : `🔒 #0${idx + 1}`);
                     pill.innerHTML = `
-                        <span class="px-1.5 py-0.5 rounded text-[10px] font-mono ${isActive ? 'bg-orange-600 text-white' : 'bg-stone-100 text-stone-600'}">#0${idx + 1}</span>
-                        <span>${issue.zhTitle.slice(0, 15)}…</span>
+                        <span class="px-1.5 py-0.5 rounded text-[10px] font-mono ${isActive ? 'bg-orange-600 text-white' : (idx === 0 ? 'bg-emerald-100 text-emerald-800' : 'bg-stone-100 text-stone-600')}">${badgeLabel}</span>
+                        <span>${issue.zhTitle.slice(0, 14)}…</span>
                         <span class="text-[10px] opacity-75 font-mono">(${issue.paragraphs.length}段)</span>
                     `;
                     pillsContainer.appendChild(pill);
@@ -812,7 +888,15 @@
         }
 
         function loadSelectedIssue(idx) {
-            currentIssueIndex = parseInt(idx, 10);
+            const targetIdx = parseInt(idx, 10);
+            if (targetIdx > 0 && !isVipUnlocked) {
+                pendingIssueIndex = targetIdx;
+                populateIssueDropdown();
+                openVipGateModal();
+                showEditorialToast('第 #02 期及后续期刊为会员专享，请输入通行口令解锁');
+                return;
+            }
+            currentIssueIndex = targetIdx;
             populateIssueDropdown();
             renderCurrentIssue();
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -874,7 +958,7 @@
             const authorEl = document.getElementById('issueAuthorBadge');
             if (authorEl) authorEl.textContent = issue.author ? `By ${issue.author}` : '';
             const countBadge = document.getElementById('paragraphCountBadge');
-            if (countBadge) countBadge.textContent = `全文共 ${issue.paragraphs.length} 自然段 · 100% 零删减原刊`;
+            if (countBadge) countBadge.textContent = `全文共 ${issue.paragraphs.length} 自然段 · C1/C2 深度精读`;
 
             renderCoverVisual(issue);
 
@@ -1252,7 +1336,7 @@
 
         function copyCambridgePrompt() {
             const issue = ISSUES[currentIssueIndex];
-            const prompt = `You are a Cambridge IELTS Speaking Examiner and an Oxford Rhetoric Professor. We are conducting a high-stakes Part 3 discussion drill based on the topic: "${issue.speaking.question}".
+            const prompt = `You are a Senior C1/C2 Academic English Coach and Rhetoric Mentor (unofficial practice partner). We are conducting a high-stakes Part 3 discussion drill based on the topic: "${issue.speaking.question}".
 
 Rules for our conversation:
 1. Speak in a sophisticated, intellectual, yet conversational C2 tone.
@@ -1261,7 +1345,7 @@ Rules for our conversation:
 4. Before asking the next question, rewrite my preceding statement into an IELTS Band 8.5+ polished model version. Let's begin now!`;
 
             navigator.clipboard.writeText(prompt).then(() => {
-                showEditorialToast('已复制 Cambridge 考官对练专属 Prompt！直接粘贴给 Gemini / ChatGPT 即可开启语音对练。');
+                showEditorialToast('已复制 C1/C2 高阶口语对练 Prompt！直接粘贴给 AI 即可开启思辨对练。');
             });
         }
 
